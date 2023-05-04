@@ -34,4 +34,8 @@ public class Book {
     )
     private List<Genre> genres;
 
+    @ManyToOne
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    private Author author;
+
 }
