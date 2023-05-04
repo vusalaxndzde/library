@@ -11,25 +11,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "role")
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(unique = true, nullable = false)
-    private String authorName;
+    private String roleName;
 
-    @OneToMany(mappedBy = "author")
-    private List<Book> books;
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", authorName='" + authorName + '\'' +
-                '}';
-    }
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 
 }
