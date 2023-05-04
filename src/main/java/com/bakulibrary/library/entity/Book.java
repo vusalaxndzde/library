@@ -21,10 +21,13 @@ public class Book {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String about;
 
     private int totalPages;
+
+    @Column(nullable = false)
+    private String imageUrl;
 
     @ManyToMany
     @JoinTable(
@@ -34,7 +37,7 @@ public class Book {
     )
     private List<Genre> genres;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
 

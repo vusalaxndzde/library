@@ -45,115 +45,19 @@
 			<hr style="background-color: #6D9886;">
 		</div>
 		<div class="body">
-			<div class="book-border">
+			<div class="book-border" th:each="book : ${books}">
 				<a href="#">
 					<div class="book-image">
 						<div class="image">
-							<img src="image/game-of-t.jpg" alt="">
+							<img th:src="${book.imageUrl}" th:alt="${book.name}">
 						</div>
 					</div>
 				</a>
 				<div class="name">
-					<p>Game of Thrones</p>
+					<p th:text="${book.name}"></p>
 				</div>
 				<div class="author">
-					<p>George R. R. Martin</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="rings.html">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/lord-of-rings.jpg" alt="Lord of Rings">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>The Lord of Rings</p>
-				</div>
-				<div class="author">
-					<p>J.R.R. Tolkien</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="#">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/0008288254-M.jpg" alt="">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>Cell</p>
-				</div>
-				<div class="author">
-					<p>Stephan King</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="#">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/7886954-M.jpg" alt="">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>Insomnia</p>
-				</div>
-				<div class="author">
-					<p>Stephan King</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="#">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/12622045-M.jpg" alt="">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>Notes from Underground</p>
-				</div>
-				<div class="author">
-					<p>Fyodor Dostoyevski</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="#">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/0008745933-M.jpg" alt="">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>Karamazov Kardeşler</p>
-				</div>
-				<div class="author">
-					<p>Fyodor Dostoyevski</p>
-				</div>
-			</div>
-
-			<div class="book-border">
-				<a href="#">
-					<div class="book-image">
-						<div class="image">
-							<img src="image/12120975-L.jpg" alt="">
-						</div>
-					</div>
-				</a>
-				<div class="name">
-					<p>Karabasan</p>
-				</div>
-				<div class="author">
-					<p>Wulf Dorn</p>
+					<p th:text="${book.author.authorName}"></p>
 				</div>
 			</div>
 		</div>
