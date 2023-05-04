@@ -38,15 +38,16 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(configurer ->
                     configurer
-                            .requestMatchers("/").permitAll()
-                            .requestMatchers("/css/**").permitAll()
+                            .requestMatchers("/", "/registration/**").permitAll()
+                            .requestMatchers("/css/**", "/image/**").permitAll()
                             .anyRequest().authenticated()
                 )
 
                 .formLogin(form ->
                     form
-                            .loginPage("/auth/login")
-                            .loginProcessingUrl("/auth/authUser")
+                            .loginPage("/login")
+                            .loginProcessingUrl("/authUser")
+                            .defaultSuccessUrl("/")
                             .permitAll()
                 )
 
