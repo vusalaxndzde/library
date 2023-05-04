@@ -87,3 +87,14 @@
 .mybtn {
 	margin-left: 10px;
 }
+
+button {
+	cursor: pointer;
+}
+
+.username {
+	color: white;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-right: 5px;
+}

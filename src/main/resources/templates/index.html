@@ -37,6 +37,7 @@
 			</div>
 			<a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
 			<a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
+			<div class="nav-item active username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
 			<form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
 				<button type="submit" class="btn btn-success mybtn">Logout</button>
 			</form>
