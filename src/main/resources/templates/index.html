@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  			xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,8 +35,11 @@
 					</div>
 				</form>
 			</div>
-			<a href="/login" class="btn btn-success mybtn" id="login">Log In</a>
-			<a href="/registration" class="btn btn-success mybtn" id="signup">Sign Up</a>
+			<a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
+			<a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
+			<form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
+				<button type="submit" class="btn btn-success mybtn">Logout</button>
+			</form>
 		</div>
 	</nav>
 

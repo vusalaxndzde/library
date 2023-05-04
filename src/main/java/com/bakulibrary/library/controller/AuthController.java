@@ -38,5 +38,4 @@ public class AuthController {
         return "redirect:/registration?success";
     }
 
-
 }
