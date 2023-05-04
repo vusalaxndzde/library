@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BakuLibrary</title>
+	<link rel="stylesheet" href="/css/navbar.css">
+	<link rel="stylesheet" href="/css/book.css">
+	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-survival101">
+		<div class="container">
+			<a class="navbar-brand" href="navbar.html">
+				BakuLibrary
+			</a>
+			<div class="collapse navbar-collapse" id="navbarColor02">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">My Books</a>
+					</li>
+				</ul>
+				<form class="form-inline" action="#" method="get">
+					<div class="input-group search-box">
+						<input type="text" class="form-control" name="search" placeholder="What are you looking for?" aria-label="Search for...">
+						<span class="input-group-btn">
+							<button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<a href="#" class="btn btn-success mybtn" id="login">Log In</a>
+			<a href="#" class="btn btn-success mybtn" id="signup">Sign Up</a>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="body-head">
+			<h4>The books currently present in the library are:</h4>
+			<hr style="background-color: #6D9886;">
+		</div>
+		<div class="body">
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/game-of-t.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Game of Thrones</p>
+				</div>
+				<div class="author">
+					<p>George R. R. Martin</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="rings.html">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/lord-of-rings.jpg" alt="Lord of Rings">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>The Lord of Rings</p>
+				</div>
+				<div class="author">
+					<p>J.R.R. Tolkien</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/0008288254-M.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Cell</p>
+				</div>
+				<div class="author">
+					<p>Stephan King</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/7886954-M.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Insomnia</p>
+				</div>
+				<div class="author">
+					<p>Stephan King</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/12622045-M.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Notes from Underground</p>
+				</div>
+				<div class="author">
+					<p>Fyodor Dostoyevski</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/0008745933-M.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Karamazov Kardeşler</p>
+				</div>
+				<div class="author">
+					<p>Fyodor Dostoyevski</p>
+				</div>
+			</div>
+
+			<div class="book-border">
+				<a href="#">
+					<div class="book-image">
+						<div class="image">
+							<img src="image/12120975-L.jpg" alt="">
+						</div>
+					</div>
+				</a>
+				<div class="name">
+					<p>Karabasan</p>
+				</div>
+				<div class="author">
+					<p>Wulf Dorn</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-basic">
+        <footer>
+            <div class="social">
+				<a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
+				<a href="#"><i class="icon ion-social-whatsapp"></i></a>
+				<a href="#"><i class="icon ion-social-twitter"></i></a>
+				<a href="#"><i class="icon ion-social-facebook"></i></a>
+			</div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">BakuLibrary © 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
