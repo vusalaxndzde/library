@@ -9,6 +9,8 @@ public interface UserService {
 
     List<User> findAllUsers();
 
+    User findUserByEmail(String email);
+
     Role findRoleByRoleName(String roleName);
 
     void saveUser(User user);

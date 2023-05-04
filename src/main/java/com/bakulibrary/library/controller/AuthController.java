@@ -1,10 +1,7 @@
 package com.bakulibrary.library.controller;
 
-import com.bakulibrary.library.entity.Role;
 import com.bakulibrary.library.entity.User;
-import com.bakulibrary.library.repository.RoleRepository;
-import com.bakulibrary.library.repository.UserRepository;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import com.bakulibrary.library.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AuthController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    private final RoleRepository roleRepository;
-
-    private final PasswordEncoder passwordEncoder;
-
-    public AuthController(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+    public AuthController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/login")
@@ -37,9 +28,14 @@ public class AuthController {
         return "registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/registration/save")
     public String saveUser(@ModelAttribute("user") User user) {
-
+        User tempUser = userService.findUserByEmail(user.getEmail());
+        if (tempUser != null) {
+            return "redirect:/registration?error";
+        }
+        userService.saveUser(user);
+        return "redirect:/registration?success";
     }
 
 
