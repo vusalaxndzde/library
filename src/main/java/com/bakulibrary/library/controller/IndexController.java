@@ -1,6 +1,7 @@
 package com.bakulibrary.library.controller;
 
 import com.bakulibrary.library.repository.BookRepository;
+import com.bakulibrary.library.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,15 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    private final BookRepository bookRepository;
+    private final BookService bookService;
 
-    public IndexController(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    public IndexController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     @GetMapping("/")
     public String showIndex(Model model) {
-        model.addAttribute("books", bookRepository.findAll());
+        model.addAttribute("books", bookService.findAll());
         return "index";
     }
 
