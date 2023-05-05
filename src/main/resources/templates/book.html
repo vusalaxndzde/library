@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,29 +17,33 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-survival101">
-		<div class="container">
-			<a class="navbar-brand" href="navbar.html">
-				BakuLibrary
-			</a>
-			<div class="collapse navbar-collapse" id="navbarColor02">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">My Books</a>
-					</li>
-				</ul>
-				<form class="form-inline" action="#" method="get">
-					<div class="input-group search-box">
-						<input type="text" class="form-control" name="search" placeholder="What are you looking for?" aria-label="Search for...">
-						<span class="input-group-btn">
-							<button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
-						</span>
-					</div>
-				</form>
-			</div>
-			<a href="#" class="btn btn-success mybtn" id="login">Log In</a>
-			<a href="#" class="btn btn-success mybtn" id="signup">Sign Up</a>
-		</div>
-	</nav>
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                BakuLibrary
+            </a>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">My Books</a>
+                    </li>
+                </ul>
+                <form class="form-inline" action="#" method="get">
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control" name="search" placeholder="What are you looking for?" aria-label="Search for...">
+                        <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+            <a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
+            <a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
+            <div class="nav-item active username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
+            <form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
+                <button type="submit" class="btn btn-success mybtn">Logout</button>
+            </form>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="book">
@@ -77,11 +82,11 @@
     <div class="footer-basic">
         <footer>
             <div class="social">
-				<a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
-				<a href="#"><i class="icon ion-social-whatsapp"></i></a>
-				<a href="#"><i class="icon ion-social-twitter"></i></a>
-				<a href="#"><i class="icon ion-social-facebook"></i></a>
-			</div>
+                <a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-whatsapp"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+            </div>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
