@@ -38,8 +38,8 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(configurer ->
                     configurer
-                            .requestMatchers("/", "/registration/**").permitAll()
-                            .requestMatchers("/css/**", "/image/**").permitAll()
+                            .requestMatchers("/", "/book/**", "/registration/**").permitAll()
+                            .requestMatchers("/css/**", "/image/**", "/favicon.ico").permitAll()
                             .requestMatchers("/test").hasRole("ADMIN")
                             .anyRequest().authenticated()
                 )
@@ -52,7 +52,11 @@ public class WebSecurityConfig {
                             .permitAll()
                 )
 
-                .logout(logout -> logout.permitAll());
+                .logout(logout ->
+                    logout
+                            .logoutSuccessUrl("/")
+                            .permitAll()
+                );
 
         return http.build();
     }
