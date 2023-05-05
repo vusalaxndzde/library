@@ -4,6 +4,7 @@ import com.bakulibrary.library.entity.Role;
 import com.bakulibrary.library.entity.User;
 import com.bakulibrary.library.repository.RoleRepository;
 import com.bakulibrary.library.repository.UserRepository;
+import com.bakulibrary.library.service.inter.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -2,6 +2,7 @@ package com.bakulibrary.library.service;
 
 import com.bakulibrary.library.entity.Book;
 import com.bakulibrary.library.repository.BookRepository;
+import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

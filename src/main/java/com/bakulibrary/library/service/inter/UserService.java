@@ -1,4 +1,4 @@
-package com.bakulibrary.library.service;
+package com.bakulibrary.library.service.inter;
 
 import com.bakulibrary.library.entity.User;
 

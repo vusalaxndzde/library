@@ -1,7 +1,7 @@
 package com.bakulibrary.library.controller;
 
 import com.bakulibrary.library.entity.Book;
-import com.bakulibrary.library.service.BookService;
+import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
