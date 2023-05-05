@@ -2,9 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book</title>
+    <link rel="stylesheet" href="navbar.css">
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-Book
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-survival101">
+		<div class="container">
+			<a class="navbar-brand" href="navbar.html">
+				BakuLibrary
+			</a>
+			<div class="collapse navbar-collapse" id="navbarColor02">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">My Books</a>
+					</li>
+				</ul>
+				<form class="form-inline" action="#" method="get">
+					<div class="input-group search-box">
+						<input type="text" class="form-control" name="search" placeholder="What are you looking for?" aria-label="Search for...">
+						<span class="input-group-btn">
+							<button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<a href="#" class="btn btn-success mybtn" id="login">Log In</a>
+			<a href="#" class="btn btn-success mybtn" id="signup">Sign Up</a>
+		</div>
+	</nav>
+
+    <div class="container">
+        <div class="book">
+            <div class="book-cover">
+                <img src="image/lord-of-rings.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="name">
+                    <h2>The Lord of Rings</h2>
+                </div>
+                <hr>
+                <div class="featured-info">
+                    <p class="info-head">Book Details</p>
+                    <div class="info">
+                        <div>
+                            <p>Author: </p><span> Tolkien</span>
+                        </div>
+                        <div>
+                            <p>Pages: </p><span> 1150</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="about">
+                    <p>
+                        Originally published from 1954 through 1956, J.R.R. Tolkien's richly complex series ushered in a new age of epic adventure storytelling. A philologist and illustrator who took inspiration from his work, Tolkien invented the modern heroic quest novel from the ground up, creating not just a world, but a domain, not just a lexicon, but a language, that would spawn countless imitators and lead to the inception of the epic fantasy genre. Today, THE LORD OF THE RINGS is considered "the most influential fantasy novel ever written." (THE ENCYCLOPEDIA OF FANTASY)
+                        During his travels across Middle-earth, the hobbit Bilbo Baggins had found the Ring. But the simple band of gold was far from ordinary; it was in fact the One Ring - the greatest of the ancient Rings of Power. Sauron, the Dark Lord, had infused it with his own evil magic, and when it was lost, he was forced to flee into hiding.
+                        But now Sauron's exile has ended and his power is spreading anew, fueled by the knowledge that his treasure has been found. He has gathered all the Great Rings to him, and will stop at nothing to reclaim the One that will complete his dominion. The only way to stop him is to cast the Ruling Ring deep into the Fire-Mountain at the heart of the land of Mordor--Sauron's dark realm.
+                        Fate has placed the burden in the hands of Frodo Baggins, Bilbo's heir...and he is resolved to bear it to its end. Or his own.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-basic">
+        <footer>
+            <div class="social">
+				<a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
+				<a href="#"><i class="icon ion-social-whatsapp"></i></a>
+				<a href="#"><i class="icon ion-social-twitter"></i></a>
+				<a href="#"><i class="icon ion-social-facebook"></i></a>
+			</div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">BakuLibrary © 2023</p>
+        </footer>
+    </div>
 </body>
 </html>
