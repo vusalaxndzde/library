@@ -1,9 +1,11 @@
 package com.bakulibrary.library.controller;
 
+import com.bakulibrary.library.entity.Book;
 import com.bakulibrary.library.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
@@ -21,7 +23,9 @@ public class IndexController {
     }
 
     @GetMapping("/book")
-    public String showBook() {
+    public String showBook(@RequestParam("id") int id, Model model) {
+        Book book = bookService.findById(id);
+        model.addAttribute("book", book);
         return "book";
     }
 
