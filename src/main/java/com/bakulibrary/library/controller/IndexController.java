@@ -29,6 +29,11 @@ public class IndexController {
         return "book";
     }
 
+    @GetMapping("/search")
+    public String showSearch() {
+        return "search";
+    }
+
     @GetMapping("/test")
     public String test() {
         return "test";
