@@ -36,11 +36,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Role findRoleByRoleName(String roleName) {
-        return roleRepository.findRoleByRoleName(roleName);
-    }
-
-    @Override
     public void saveUser(User user) {
         String password = user.getPassword();
         user.setPassword(passwordEncoder.encode(password));
