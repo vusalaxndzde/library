@@ -15,7 +15,6 @@ body {
     border: 1px solid rgb(209, 209, 209);
     border-radius: 10px;
     margin-bottom: 250px;
-    /* position: relative; */
     background-color: white;
     display: flex;
     gap: 35px;
@@ -29,6 +28,8 @@ body {
 
 .book-cover img {
     border-radius: 6px;
+    height: 100%;
+    width: 100%;
 }
 
 .content {
@@ -37,11 +38,9 @@ body {
 }
 
 .name {
-    width: 40%;
+    width: 100%;
     margin-bottom: 50px;
-    /* position: absolute; */
-    /* left: 400px;
-    top: 60px; */
+    text-align: left;
 }
 
 .featured-info {

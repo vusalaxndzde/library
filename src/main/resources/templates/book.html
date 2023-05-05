@@ -48,32 +48,27 @@
     <div class="container">
         <div class="book">
             <div class="book-cover">
-                <img src="image/lord-of-rings.jpg" alt="">
+                <img th:src="${book.imageUrl}" th:alt="${book.name}" alt="" src="">
             </div>
             <div class="content">
                 <div class="name">
-                    <h2>The Lord of Rings</h2>
+                    <h2 th:text="${book.name}"></h2>
                 </div>
                 <hr>
                 <div class="featured-info">
                     <p class="info-head">Book Details</p>
                     <div class="info">
                         <div>
-                            <p>Author: </p><span> Tolkien</span>
+                            <p>Author: </p><span th:text=" ${book.author.authorName}"></span>
                         </div>
                         <div>
-                            <p>Pages: </p><span> 1150</span>
+                            <p>Pages: </p><span th:text=" ${book.totalPages}"></span>
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div class="about">
-                    <p>
-                        Originally published from 1954 through 1956, J.R.R. Tolkien's richly complex series ushered in a new age of epic adventure storytelling. A philologist and illustrator who took inspiration from his work, Tolkien invented the modern heroic quest novel from the ground up, creating not just a world, but a domain, not just a lexicon, but a language, that would spawn countless imitators and lead to the inception of the epic fantasy genre. Today, THE LORD OF THE RINGS is considered "the most influential fantasy novel ever written." (THE ENCYCLOPEDIA OF FANTASY)
-                        During his travels across Middle-earth, the hobbit Bilbo Baggins had found the Ring. But the simple band of gold was far from ordinary; it was in fact the One Ring - the greatest of the ancient Rings of Power. Sauron, the Dark Lord, had infused it with his own evil magic, and when it was lost, he was forced to flee into hiding.
-                        But now Sauron's exile has ended and his power is spreading anew, fueled by the knowledge that his treasure has been found. He has gathered all the Great Rings to him, and will stop at nothing to reclaim the One that will complete his dominion. The only way to stop him is to cast the Ruling Ring deep into the Fire-Mountain at the heart of the land of Mordor--Sauron's dark realm.
-                        Fate has placed the burden in the hands of Frodo Baggins, Bilbo's heir...and he is resolved to bear it to its end. Or his own.
-                    </p>
+                    <p th:text="${book.about}"></p>
                 </div>
             </div>
         </div>
