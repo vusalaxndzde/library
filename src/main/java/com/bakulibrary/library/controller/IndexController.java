@@ -35,7 +35,6 @@ public class IndexController {
     public String showSearch(@RequestParam("q") String question, Model model) {
         List<Book> books = bookService.findBookByNameContainsIgnoreCase(question);
         model.addAttribute("books", books);
-        System.out.println(books);
         return "search";
     }
 
