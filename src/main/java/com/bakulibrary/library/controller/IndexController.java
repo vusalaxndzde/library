@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class IndexController {
 
@@ -30,8 +32,10 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String showSearch(@RequestParam("q") String question) {
-        System.out.println(bookService.findBookByNameContainsIgnoreCase(question));
+    public String showSearch(@RequestParam("q") String question, Model model) {
+        List<Book> books = bookService.findBookByNameContainsIgnoreCase(question);
+        model.addAttribute("searchedBooks", books);
+        System.out.println(books);
         return "search";
     }
 
