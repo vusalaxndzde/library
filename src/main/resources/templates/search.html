@@ -28,10 +28,10 @@
                 </ul>
                 <form class="form-inline" action="#" th:action="@{/search}" method="get">
                     <div class="input-group search-box">
-                        <input type="text" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
+                        <input type="text" th:value="${param.q}" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
                         <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
-                            </span>
+                            <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -53,7 +53,7 @@
             <div class="search-form">
                 <form action="#" th:action="@{/search}" method="get">
 					<div class="search-input">
-						<input type="text" name="q" placeholder="What are you looking for?">
+						<input type="text" th:value="${param.q}" name="q" placeholder="What are you looking for?">
 						<button type="submit">Search</button>
 					</div>
 				</form>

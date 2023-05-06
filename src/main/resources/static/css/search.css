@@ -41,6 +41,7 @@ body {
 .search-form .search-input input {
     width: 450px;
     margin-right: 10px;
+    padding-left: 5px;
 }
 
 .search-form .search-input button {
@@ -51,6 +52,7 @@ body {
     color: gray;
     margin-top: 50px;
     margin-bottom: 30px;
+    text-decoration: underline;
 }
 
 .result {
