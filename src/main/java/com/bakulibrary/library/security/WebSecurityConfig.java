@@ -39,7 +39,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(configurer ->
                     configurer
                             .requestMatchers("/", "/book/**", "/search/**", "/registration/**").permitAll()
-                            .requestMatchers("/css/**", "/image/**", "/favicon.ico").permitAll()
+                            .requestMatchers("/css/**", "/image/**").permitAll()
                             .requestMatchers("/test").hasRole("ADMIN")
                             .anyRequest().authenticated()
                 )
