@@ -41,4 +41,16 @@ public class Book {
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", totalPages=" + totalPages +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", genres=" + genres +
+                ", author=" + author +
+                '}';
+    }
+
 }

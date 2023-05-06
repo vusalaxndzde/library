@@ -10,4 +10,6 @@ public interface BookService {
 
     Book findById(int id);
 
+    List<Book> findBookByNameContainsIgnoreCase(String name);
+
 }

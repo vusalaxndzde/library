@@ -58,10 +58,13 @@
                     <p class="info-head">Book Details</p>
                     <div class="info">
                         <div>
-                            <p>Author: </p><span th:text=" ${book.author.authorName}"></span>
+                            <p>Author: </p><span th:text="' ' + ${book.author.authorName}"></span>
                         </div>
                         <div>
-                            <p>Pages: </p><span th:text=" ${book.totalPages}"></span>
+                            <p>Pages: </p><span th:text="' ' + ${book.totalPages}"></span>
+                        </div>
+                        <div>
+                            <p>Genre(s): </p><span th:each="genre : ${book.genres}" th:text="' ' + ${genre.genreName}"></span>
                         </div>
                     </div>
                 </div>

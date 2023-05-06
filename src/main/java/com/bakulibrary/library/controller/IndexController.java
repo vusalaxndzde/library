@@ -30,7 +30,8 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String showSearch() {
+    public String showSearch(@RequestParam("q") String question) {
+        System.out.println(bookService.findBookByNameContainsIgnoreCase(question));
         return "search";
     }
 

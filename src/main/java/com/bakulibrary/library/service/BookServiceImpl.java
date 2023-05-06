@@ -28,4 +28,9 @@ public class BookServiceImpl implements BookService {
         return book.orElseThrow();
     }
 
+    @Override
+    public List<Book> findBookByNameContainsIgnoreCase(String name) {
+        return bookRepository.findBookByNameContainsIgnoreCase(name);
+    }
+
 }
