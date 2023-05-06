@@ -7,7 +7,6 @@
 </head>
 <body>
     <div class="container">
-        <input type="checkbox" id="check">
         <div class="login form">
             <header>Login</header>
             <form action="#" th:action="@{/authUser}" method="post">
@@ -18,7 +17,7 @@
             </form>
             <div class="signup">
                 <span class="signup">Don't have an account?
-                    <label for="check">Signup</label>
+                    <a href="/registration">Signup</a>
                 </span>
             </div>
         </div>
