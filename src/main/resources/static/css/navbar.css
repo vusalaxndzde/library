@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap');
+
 .container {
 	max-width: 960px;
 }
 
 .navbar-survival101 {
 	background-color: #68B984;
+}
+
+.navbar-brand {
+	font-family: 'Charmonman', cursive;
 }
 
 /* .navbar-survival101 .navbar-brand {
@@ -94,7 +102,7 @@ button {
 
 .username {
 	color: white;
-	font-weight: bold;
+	font-weight: 600;
 	margin-left: 15px;
 	margin-right: 5px;
 }
