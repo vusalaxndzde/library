@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <form action="#" th:action="@{/authUser}" method="post">
-        <label for="username">Email: </label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Login">
-    </form>
+<!--    <form action="#" th:action="@{/authUser}" method="post">-->
+<!--        <label for="username">Email: </label>-->
+<!--        <input type="text" id="username" name="username"><br>-->
+<!--        <label for="password">Password:</label>-->
+<!--        <input type="password" id="password" name="password"><br>-->
+<!--        <input type="submit" value="Login">-->
+<!--    </form>-->
+
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <form action="#">
+            <input type="text" placeholder="Enter your email">
+            <input type="password" placeholder="Enter your password">
+            <a href="#">Forgot password?</a>
+            <input type="button" class="button" value="Login">
+        </form>
+        <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+        </div>
+    </div>
+    <div class="registration form">
+        <header>Signup</header>
+        <form action="#">
+            <input type="text" placeholder="Enter your email">
+            <input type="password" placeholder="Create a password">
+            <input type="password" placeholder="Confirm your password">
+            <input type="button" class="button" value="Signup">
+        </form>
+        <div class="signup">
+        <span class="signup">Already have an account?
+         <label for="check">Login</label>
+        </span>
+        </div>
+    </div>
+</div>
 </body>
 </html>
