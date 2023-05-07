@@ -2,11 +2,15 @@
     padding: 40px 0;
     background: #fff;
     font-family: 'Arvo', serif;
-    margin-top: 150px;
+    margin: 50px 0 0 0;
 }
 
 .page_404 img {
     width: 100%;
+}
+
+.page_404 .text-center {
+    margin: 0 auto;
 }
 
 .four_zero_four_bg {
