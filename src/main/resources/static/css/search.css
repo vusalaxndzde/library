@@ -87,6 +87,7 @@ body {
 
 .result .result-name .author{
     font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .result .result-name .genre{
