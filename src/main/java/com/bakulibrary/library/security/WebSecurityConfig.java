@@ -38,7 +38,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(configurer ->
                     configurer
-                            .requestMatchers("/", "/book/**", "/search/**").permitAll()
+                            .requestMatchers("/", "/book/**", "/search/**", "/contact").permitAll()
                             .requestMatchers("/registration/**", "/login/**").permitAll()
                             .requestMatchers("/css/**", "/image/**", "/js/**").permitAll()
                             .requestMatchers("/test").hasRole("ADMIN")

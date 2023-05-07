@@ -38,6 +38,11 @@ public class IndexController {
         return "search";
     }
 
+    @GetMapping("/contact")
+    public String showContact() {
+        return "contact";
+    }
+
     @GetMapping("/test")
     public String test() {
         return "test";
