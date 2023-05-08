@@ -42,6 +42,7 @@ public class WebSecurityConfig {
                             .requestMatchers("/registration/**", "/login/**").permitAll()
                             .requestMatchers("/css/**", "/image/**", "/js/**").permitAll()
                             .requestMatchers("/test").hasRole("ADMIN")
+                            .requestMatchers("/account/books").hasRole("USER")
                             .anyRequest().permitAll()
                 )
 
@@ -55,7 +56,7 @@ public class WebSecurityConfig {
 
                 .logout(logout ->
                     logout
-                            .logoutSuccessUrl("/")
+//                            .logoutSuccessUrl("/")
                             .permitAll()
                 );
 

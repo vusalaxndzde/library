@@ -18,6 +18,12 @@
         <div class="login form">
             <header>Login</header>
             <form action="#" th:action="@{/authUser}" method="post">
+                <div class="alert alert-success info" th:if="${param.logout}" role="alert">
+                    Logout successful.
+                </div>
+                <div class="alert alert-danger info" th:if="${param.error}" role="alert">
+                    Invalid username or password!
+                </div>
                 <input type="text" name="username" placeholder="Enter your email">
                 <input type="password" name="password" placeholder="Enter your password">
                 <a href="#">Forgot password?</a>
