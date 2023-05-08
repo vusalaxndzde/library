@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +41,9 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
+
+    @OneToMany(mappedBy = "book")
+    private Set<ReadingList> readingLists;
 
     @Override
     public String toString() {
