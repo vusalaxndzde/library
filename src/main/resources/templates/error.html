@@ -26,13 +26,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">My Books</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
             </ul>
             <form class="form-inline" action="#" th:action="@{search}" method="get">
                 <div class="input-group search-box">
                     <input type="text" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
                     <span class="input-group-btn">
-							<button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
-						</span>
+                            <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+                        </span>
                 </div>
             </form>
         </div>
