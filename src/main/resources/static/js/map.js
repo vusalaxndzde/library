@@ -6,7 +6,7 @@ let service;
 let infowindow;
 
 function initMap() {
-    const sydney = new google.maps.LatLng(-33.867, 151.195);
+    const sydney = new google.maps.LatLng(40.4093, 49.8671);
 
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {

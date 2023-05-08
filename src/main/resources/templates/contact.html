@@ -1,14 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <title>Place Searches</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="/css/map.css"/>
-    <script type="module" src="/js/map.js"></script>
+    <title>Contact - BakuLibrary</title>
+    <link rel="stylesheet" href="/css/map.css"/>
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
-    <div id="map"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-survival101">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            Baku Library
+        </a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">My Books</a>
+                </li>
+            </ul>
+            <form class="form-inline" action="#" th:action="@{search}" method="get">
+                <div class="input-group search-box">
+                    <input type="text" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
+                    <span class="input-group-btn">
+							<button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
+						</span>
+                </div>
+            </form>
+        </div>
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
+        <a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
+        <div class="nav-item active username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
+        <form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
+            <button type="submit" class="btn btn-success mybtn">Logout</button>
+        </form>
+    </div>
+</nav>
+<!--    <div id="map"></div>-->
 
+    <div class="container">
+        <div class="contact">
+            <h1 class="name">Contact</h1>
+            <div id="map" class="contact-body">
+                <p>Do not hesitate to contact us with your questions, suggestions or feedback. Our library team will be
+                    happy to assist you with any issue.</p><br>
+                <p>If you have any questions or requests, please contact us using one of the following contact
+                    information:</p>
+                <p>Address: Baku, Azerbaijan</p>
+                <p>Telephone: +994-55-000-00-00</p>
+                <p>Email: vusal.axndzde@gmail.com</p><br>
+                <p>You can also browse our catalog and review our programs and events by visiting our other pages on our
+                    library website.</p>
+                <p>There will always be a librarian available in our library. Therefore, to ask you a question or to
+                    help you with something.</p>
+                <p>Another way to contact us is through our social media platforms. You can follow us on our Facebook
+                    and Twitter accounts and be informed about our events.</p><br>
+                <p class="finish">We thank you!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-basic">
+        <footer>
+            <div class="social">
+                <a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-whatsapp"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-github"></i></a>
+            </div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="/contact">Contact</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">BakuLibrary © 2023</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/js/map.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly" defer></script>
 </body>
 </html>

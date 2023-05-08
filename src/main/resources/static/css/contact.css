@@ -1,0 +1,17 @@
+.contact {
+    margin-top: 100px;
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.contact-body {
+    padding: 40px;
+}
+
+.finish {
+    text-align: center;
+}
