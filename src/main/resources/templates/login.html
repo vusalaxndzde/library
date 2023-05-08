@@ -12,37 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-survival101">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-            Baku Library
-        </a>
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">My Books</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-            </ul>
-            <form class="form-inline" action="#" th:action="@{search}" method="get">
-                <div class="input-group search-box">
-                    <input type="text" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
-                    <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
-                        </span>
-                </div>
-            </form>
-        </div>
-        <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
-        <a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
-        <div class="nav-item active username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
-        <form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
-            <button type="submit" class="btn btn-success mybtn">Logout</button>
-        </form>
-    </div>
-</nav>
+    <div th:replace="fragments/topnav :: navbar"></div>
 
     <div class="mycontainer">
         <div class="login form">
