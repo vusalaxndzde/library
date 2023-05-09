@@ -23,18 +23,18 @@ body {
 
 .book-border {
     width: 300px;
-    height: 400px;
+    height: 480px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    box-shadow: 2px 2px 6px 0.5px rgba(167, 166, 166, 0.753)
+    box-shadow: 2px 2px 6px 0.5px rgba(167, 166, 166, 0.753);
 }
 
 .book-border:hover {
     background-color: rgb(247, 247, 247);
     transition: 0.3s;
-    transform: scale(1.02);
+    transform: scale(1.005);
     box-shadow: 2px 2px 6px 3px rgba(167, 166, 166, 0.753)
 }
 

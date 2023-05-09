@@ -37,6 +37,9 @@
 				<div class="author">
 					<p th:text="${book.author.authorName}"></p>
 				</div>
+				<form action="#" th:action="@{/addMyBook(id=${book.id})}" method="post">
+					<button type="submit" class="btn btn-secondary">Add to My Books</button>
+				</form>
 			</div>
 		</div>
 	</div>
