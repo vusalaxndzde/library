@@ -36,8 +36,8 @@
                     <div class="author">
                         <p th:text="${book.author.authorName}"></p>
                     </div>
-                    <form action="#" method="post">
-                        <button style="padding: 13px 40px; font-weight: 500" type="submit" class="btn btn-danger">Delete from My Books</button>
+                    <form action="#" th:action="@{/account/books/deleteBookFromList(id=${book.id})}" method="post">
+                        <button type="submit" class="btn btn-danger delete-btn">Delete from My Books</button>
                     </form>
                 </div>
             </div>

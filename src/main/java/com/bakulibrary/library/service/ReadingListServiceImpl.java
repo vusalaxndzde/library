@@ -5,6 +5,7 @@ import com.bakulibrary.library.entity.User;
 import com.bakulibrary.library.repository.ReadingListRepository;
 import com.bakulibrary.library.service.inter.ReadingListService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,8 +24,19 @@ public class ReadingListServiceImpl implements ReadingListService {
     }
 
     @Override
+    public ReadingList findReadingListByBookId(int id) {
+        return readingListRepository.findReadingListByBook_Id(id);
+    }
+
+    @Override
     public ReadingList save(ReadingList readingList) {
         return readingListRepository.save(readingList);
+    }
+
+    @Transactional
+    @Override
+    public void deleteReadingListByBookId(int id) {
+        readingListRepository.deleteReadingListByBook_Id(id);
     }
 
 }

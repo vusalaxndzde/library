@@ -29,20 +29,6 @@ public class ReadingListController {
         this.bookService = bookService;
     }
 
-    @PostMapping("/addBookToList")
-    public String addBookToMyReadingList(@RequestParam("id") int id, Authentication authentication) {
-        String email = authentication.getName();
-        User user = userService.findUserByEmail(email);
-        Book book = bookService.findById(id);
-
-        ReadingList readingList = new ReadingList();
-        readingList.setUser(user);
-        readingList.setBook(book);
-        readingListService.save(readingList);
-
-        return "redirect:/";
-    }
-
     @GetMapping("/account/books")
     public String showMyBooks(Model model, Authentication authentication) {
         String email = authentication.getName();
@@ -52,6 +38,29 @@ public class ReadingListController {
         List<Book> books = readingLists.stream().map(ReadingList::getBook).collect(Collectors.toList());
         model.addAttribute("books", books);
         return "user-books";
+    }
+
+    @PostMapping("/addBookToList")
+    public String addBookToMyReadingList(@RequestParam("id") int id, Authentication authentication) {
+        ReadingList readingList = readingListService.findReadingListByBookId(id);
+        if (readingList == null) {
+            String email = authentication.getName();
+            User user = userService.findUserByEmail(email);
+            Book book = bookService.findById(id);
+
+            readingList = new ReadingList();
+            readingList.setUser(user);
+            readingList.setBook(book);
+            readingListService.save(readingList);
+        }
+
+        return "redirect:/";
+    }
+
+    @PostMapping("/account/books/deleteBookFromList")
+    public String deleteBookFromReadingList(@RequestParam("id") int id) {
+        readingListService.deleteReadingListByBookId(id);
+        return "redirect:/account/books";
     }
 
 }

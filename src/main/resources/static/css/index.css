@@ -34,7 +34,7 @@ body {
 .book-border:hover {
     background-color: rgb(247, 247, 247);
     transition: 0.3s;
-    transform: scale(1.005);
+    /*transform: scale(1.005);*/
     box-shadow: 2px 2px 6px 3px rgba(167, 166, 166, 0.753)
 }
 
@@ -68,4 +68,15 @@ body {
 
 hr {
     background-color: #6D9886;
+}
+
+.book-border .add-btn {
+    padding: 13px 60px;
+    font-weight: 500
+}
+
+.book-border .add-btn:hover {
+    background-color: white;
+    color: green;
+    transition: 0.5s;
 }

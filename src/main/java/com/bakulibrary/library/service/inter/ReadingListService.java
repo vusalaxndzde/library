@@ -9,6 +9,10 @@ public interface ReadingListService {
 
     List<ReadingList> findReadingListByUser(User user);
 
+    ReadingList findReadingListByBookId(int id);
+
     ReadingList save(ReadingList readingList);
+
+    void deleteReadingListByBookId(int id);
 
 }
