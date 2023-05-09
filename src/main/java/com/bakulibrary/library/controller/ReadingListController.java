@@ -58,8 +58,10 @@ public class ReadingListController {
     }
 
     @PostMapping("/account/books/deleteBookFromList")
-    public String deleteBookFromReadingList(@RequestParam("id") int id) {
-        readingListService.deleteReadingListByBookId(id);
+    public String deleteBookFromReadingList(@RequestParam("id") int bookId, Authentication authentication) {
+        String email = authentication.getName();
+        User user = userService.findUserByEmail(email);
+        readingListService.deleteReadingListByUserIdAndBookId(user.getId(), bookId);
         return "redirect:/account/books";
     }
 

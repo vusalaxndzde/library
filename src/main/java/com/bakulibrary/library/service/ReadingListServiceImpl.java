@@ -35,8 +35,8 @@ public class ReadingListServiceImpl implements ReadingListService {
 
     @Transactional
     @Override
-    public void deleteReadingListByBookId(int id) {
-        readingListRepository.deleteReadingListByBook_Id(id);
+    public void deleteReadingListByUserIdAndBookId(int userId, int bookId) {
+        readingListRepository.deleteReadingListByUser_IdAndBook_Id(userId, bookId);
     }
 
 }

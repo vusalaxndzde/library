@@ -13,6 +13,6 @@ public interface ReadingListService {
 
     ReadingList save(ReadingList readingList);
 
-    void deleteReadingListByBookId(int id);
+    void deleteReadingListByUserIdAndBookId(int userId, int bookId);
 
 }
