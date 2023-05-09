@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>My Books | BakuLibrary</title>
@@ -36,7 +37,7 @@
                         <p th:text="${book.author.authorName}"></p>
                     </div>
                     <form action="#" method="post">
-                        <button type="submit" class="btn btn-secondary">Delete from My Books</button>
+                        <button style="padding: 13px 40px; font-weight: 500" type="submit" class="btn btn-danger">Delete from My Books</button>
                     </form>
                 </div>
             </div>
