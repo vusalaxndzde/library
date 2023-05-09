@@ -24,4 +24,13 @@ public class ReadingList {
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
 
+    @Override
+    public String toString() {
+        return "ReadingList{" +
+                "id=" + id +
+                ", user=" + user.getId() +
+                ", book=" + book.getId() +
+                '}';
+    }
+
 }

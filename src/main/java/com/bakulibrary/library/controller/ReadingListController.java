@@ -8,8 +8,13 @@ import com.bakulibrary.library.service.inter.ReadingListService;
 import com.bakulibrary.library.service.inter.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ReadingListController {
@@ -36,6 +41,17 @@ public class ReadingListController {
         readingListService.save(readingList);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/account/books")
+    public String showMyBooks(Model model, Authentication authentication) {
+        String email = authentication.getName();
+        User user = userService.findUserByEmail(email);
+
+        List<ReadingList> readingLists = readingListService.findReadingListByUser(user);
+        List<Book> books = readingLists.stream().map(ReadingList::getBook).collect(Collectors.toList());
+        model.addAttribute("books", books);
+        return "user-books";
     }
 
 }
