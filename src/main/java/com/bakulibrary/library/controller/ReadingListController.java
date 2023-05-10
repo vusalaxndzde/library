@@ -53,9 +53,9 @@ public class ReadingListController {
             readingList.setUser(user);
             readingList.setBook(book);
             readingListService.save(readingList);
+            return "redirect:/?success";
         }
-
-        return "redirect:/";
+        return "redirect:/?error";
     }
 
     @PostMapping("/account/books/deleteBookFromList")
@@ -63,7 +63,7 @@ public class ReadingListController {
         String email = authentication.getName();
         User user = userService.findUserByEmail(email);
         readingListService.deleteReadingListByUserIdAndBookId(user.getId(), bookId);
-        return "redirect:/account/books";
+        return "redirect:/account/books?success";
     }
 
 }

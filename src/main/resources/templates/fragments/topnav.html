@@ -15,7 +15,7 @@
                 </ul>
                 <form class="form-inline" action="#" th:action="@{/search}" method="get">
                     <div class="input-group search-box">
-                        <input type="text" class="form-control" name="q" placeholder="What are you looking for?" aria-label="Search for...">
+                        <input type="text" class="form-control" name="q" th:value="${param.q}" placeholder="What are you looking for?" aria-label="Search for...">
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="submit"><i class="ion-search"></i></button>
                         </span>
