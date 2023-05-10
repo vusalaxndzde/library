@@ -24,8 +24,8 @@ public class ReadingListServiceImpl implements ReadingListService {
     }
 
     @Override
-    public ReadingList findReadingListByBookId(int id) {
-        return readingListRepository.findReadingListByBook_Id(id);
+    public ReadingList findReadingListByUserIdAndBookId(int userId, int bookId) {
+        return readingListRepository.findReadingListByUser_IdAndBook_Id(userId, bookId);
     }
 
     @Override

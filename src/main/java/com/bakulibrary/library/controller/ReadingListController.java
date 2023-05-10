@@ -41,12 +41,13 @@ public class ReadingListController {
     }
 
     @PostMapping("/addBookToList")
-    public String addBookToMyReadingList(@RequestParam("id") int id, Authentication authentication) {
-        ReadingList readingList = readingListService.findReadingListByBookId(id);
+    public String addBookToMyReadingList(@RequestParam("id") int bookId, Authentication authentication) {
+        String email = authentication.getName();
+        User user = userService.findUserByEmail(email);
+        ReadingList readingList = readingListService.findReadingListByUserIdAndBookId(user.getId(), bookId);
+
         if (readingList == null) {
-            String email = authentication.getName();
-            User user = userService.findUserByEmail(email);
-            Book book = bookService.findById(id);
+            Book book = bookService.findById(bookId);
 
             readingList = new ReadingList();
             readingList.setUser(user);

@@ -10,7 +10,7 @@ public interface ReadingListRepository extends JpaRepository<ReadingList, Intege
 
     List<ReadingList> findReadingListByUser(User user);
 
-    ReadingList findReadingListByBook_Id(int id);
+    ReadingList findReadingListByUser_IdAndBook_Id(int userId, int bookId);
 
     void deleteReadingListByUser_IdAndBook_Id(int userId, int bookId);
 

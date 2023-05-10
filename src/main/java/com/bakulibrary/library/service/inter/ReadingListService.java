@@ -9,7 +9,7 @@ public interface ReadingListService {
 
     List<ReadingList> findReadingListByUser(User user);
 
-    ReadingList findReadingListByBookId(int id);
+    ReadingList findReadingListByUserIdAndBookId(int userId, int bookId);
 
     ReadingList save(ReadingList readingList);
 
