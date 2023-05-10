@@ -21,6 +21,9 @@
                 My Books
             </div>
             <hr>
+            <div class="size-books">
+                <span th:text="${books.size()}"></span><span> book</span>
+            </div>
             <div class="body">
                 <div class="book-border" th:each="book : ${books}">
                     <a th:href="@{/book(id=${book.id})}">

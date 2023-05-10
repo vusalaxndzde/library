@@ -85,3 +85,10 @@ body {
     background-color: white;
     color: red;
 }
+
+.size-books {
+    color: gray;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
