@@ -16,6 +16,7 @@
     <div style="padding: 0 500px; margin: 50px 0">
         <div class="container">
             <form action="#" th:action="@{/admin/save}" th:object="${bookForm}" method="post">
+                <input type="hidden" th:field="*{id}">
                 <div class="row mb-4 col-4">
                     <div class="col">
                         <div class="form-outline">

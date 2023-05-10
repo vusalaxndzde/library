@@ -1,10 +1,17 @@
 package com.bakulibrary.library.service;
 
+import com.bakulibrary.library.dto.BookFormDto;
+import com.bakulibrary.library.entity.Author;
 import com.bakulibrary.library.entity.Book;
+import com.bakulibrary.library.entity.Genre;
+import com.bakulibrary.library.repository.AuthorRepository;
 import com.bakulibrary.library.repository.BookRepository;
+import com.bakulibrary.library.repository.GenreRepository;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,9 +19,13 @@ import java.util.Optional;
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
+    private final GenreRepository genreRepository;
 
-    public BookServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository, GenreRepository genreRepository) {
         this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
@@ -31,6 +42,45 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findBookByNameContainsIgnoreCase(String name) {
         return bookRepository.findBookByNameContainsIgnoreCase(name);
+    }
+
+    @Override
+    public void saveBookForm(BookFormDto bookFormDto) {
+        Book book = new Book();
+        book.setId(bookFormDto.getId());
+        book.setName(bookFormDto.getName());
+        book.setAbout(bookFormDto.getAbout());
+        book.setTotalPages(book.getTotalPages());
+
+        String authorName = bookFormDto.getAuthorName();
+        book.setAuthor(checkAuthorExist(authorName));
+
+        List<String> genreNames = Arrays.stream(bookFormDto.getGenres().split(" ")).toList();
+        book.setGenres(checkGenresExist(genreNames));
+    }
+
+    public Author checkAuthorExist(String authorName) {
+        Author author = authorRepository.findAuthorByAuthorName(authorName);
+        if (author == null) {
+            author = new Author();
+            author.setAuthorName(authorName);
+            authorRepository.save(author);
+        }
+        return author;
+    }
+
+    public List<Genre> checkGenresExist(List<String> genreNames) {
+        List<Genre> genres = new ArrayList<>();
+        for (String genreName : genreNames) {
+            Genre genre = genreRepository.findGenreByGenreName(genreName);
+            if (genre == null) {
+                genre = new Genre();
+                genre.setGenreName(genreName);
+                genreRepository.save(genre);
+            }
+            genres.add(genre);
+        }
+        return genres;
     }
 
 }
