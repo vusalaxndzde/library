@@ -4,47 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Book</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <form action="#" th:action="@{/admin/save}" th:object="${bookForm}" method="post">
-            <div class="row mb-4 col-4">
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example1">Book name</label>
-                        <input type="text" th:field="*{name}" id="form6Example1" name="name" class="form-control" />
+    <div th:replace="~{fragments/topnav :: navbar}"></div>
+    <div style="padding: 0 500px; margin: 50px 0">
+        <div class="container">
+            <form action="#" th:action="@{/admin/save}" th:object="${bookForm}" method="post">
+                <div class="row mb-4 col-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">Book name</label>
+                            <input type="text" th:field="*{name}" id="form6Example1" name="name" class="form-control" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-outline mb-4 col">
-                <label class="form-label" for="form6Example7">About</label>
-                <textarea class="form-control" th:field="*{about}" id="form6Example7" name="about" rows="4"></textarea>
-            </div>
+                <div class="form-outline mb-4 col">
+                    <label class="form-label" for="form6Example7">About</label>
+                    <textarea class="form-control" th:field="*{about}" id="form6Example7" name="about" rows="4"></textarea>
+                </div>
 
-            <div class="form-outline mb-4 col-4">
-                <label class="form-label" for="form6Example3">Image url</label>
-                <input type="text" th:field="*{imageUrl}" id="form6Example3" name="imageUrl" class="form-control" />
-            </div>
+                <div class="form-outline mb-4 col-4">
+                    <label class="form-label" for="form6Example3">Image url</label>
+                    <input type="text" th:field="*{imageUrl}" id="form6Example3" name="imageUrl" class="form-control" />
+                </div>
 
-            <div class="form-outline mb-4 col-4">
-                <label class="form-label" for="form6Example4">Total pages</label>
-                <input type="number" th:field="*{totalPages}" id="form6Example4" name="pages" class="form-control" />
-            </div>
+                <div class="form-outline mb-4 col-4">
+                    <label class="form-label" for="form6Example4">Total pages</label>
+                    <input type="number" th:field="*{totalPages}" id="form6Example4" name="pages" class="form-control" />
+                </div>
 
-            <div class="form-outline mb-4 col-4">
-                <label class="form-label" for="form6Example5">Author</label>
-                <input type="text" th:field="*{authorName}" id="form6Example5" name="author" class="form-control" />
-            </div>
+                <div class="form-outline mb-4 col-4">
+                    <label class="form-label" for="form6Example5">Author</label>
+                    <input type="text" th:field="*{authorName}" id="form6Example5" name="author" class="form-control" />
+                </div>
 
-            <div class="form-outline mb-4 col-8">
-                <label class="form-label" for="form6Example6">Genre</label>
-                <input type="text" th:field="*{genres}" id="form6Example6" class="form-control" />
-            </div>
+                <div class="form-outline mb-4 col-8">
+                    <label class="form-label" for="form6Example6">Genre</label>
+                    <input type="text" th:field="*{genres}" id="form6Example6" class="form-control" />
+                </div>
 
-            <button type="submit" class="btn btn-primary btn-block mb-4 col-4">Submit</button>
-        </form>
+                <button type="submit" class="btn btn-primary btn-block mb-4 col-2">Submit</button>
+            </form>
+        </div>
     </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
