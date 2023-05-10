@@ -50,13 +50,36 @@ public class BookServiceImpl implements BookService {
         book.setId(bookFormDto.getId());
         book.setName(bookFormDto.getName());
         book.setAbout(bookFormDto.getAbout());
-        book.setTotalPages(book.getTotalPages());
+        book.setTotalPages(bookFormDto.getTotalPages());
+        book.setImageUrl("/image/" + bookFormDto.getImageUrl());
 
         String authorName = bookFormDto.getAuthorName();
         book.setAuthor(checkAuthorExist(authorName));
 
         List<String> genreNames = Arrays.stream(bookFormDto.getGenres().split(" ")).toList();
         book.setGenres(checkGenresExist(genreNames));
+
+        bookRepository.save(book);
+    }
+
+    @Override
+    public BookFormDto convertToBookFormDto(Book book) {
+        BookFormDto bookFormDto = new BookFormDto();
+        bookFormDto.setName(book.getName());
+        bookFormDto.setId(book.getId());
+        bookFormDto.setImageUrl(book.getImageUrl().substring(7));
+        bookFormDto.setAbout(book.getAbout());
+        bookFormDto.setTotalPages(book.getTotalPages());
+        bookFormDto.setAuthorName(book.getAuthor().getAuthorName());
+
+        StringBuilder genreNames = new StringBuilder();
+        List<Genre> genres = book.getGenres();
+        for (Genre genre : genres) {
+            genreNames.append(genre.getGenreName()).append(" ");
+        }
+        bookFormDto.setGenres(genreNames.substring(0, genreNames.length() - 1));
+
+        return bookFormDto;
     }
 
     public Author checkAuthorExist(String authorName) {

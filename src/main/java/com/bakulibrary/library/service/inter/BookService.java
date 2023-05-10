@@ -15,4 +15,6 @@ public interface BookService {
 
     void saveBookForm(BookFormDto bookFormDto);
 
+    BookFormDto convertToBookFormDto(Book book);
+
 }

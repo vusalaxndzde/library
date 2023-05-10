@@ -54,7 +54,7 @@ body {
 }
 
 .name {
-    width: 200px;
+    width: 100%;
     font-size: 18px;
     text-align: center;
     font-weight: bold;

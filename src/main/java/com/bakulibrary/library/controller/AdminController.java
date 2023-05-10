@@ -1,13 +1,11 @@
 package com.bakulibrary.library.controller;
 
 import com.bakulibrary.library.dto.BookFormDto;
+import com.bakulibrary.library.entity.Book;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -22,6 +20,14 @@ public class AdminController {
     @GetMapping("/showAddBookForm")
     public String showAddBookForm(Model model) {
         BookFormDto bookFormDto = new BookFormDto();
+        model.addAttribute("bookForm", bookFormDto);
+        return "book-form";
+    }
+
+    @GetMapping("/showUpdateBookForm")
+    public String showUpdateBookForm(@RequestParam("id") int id, Model model) {
+        Book book = bookService.findById(id);
+        BookFormDto bookFormDto = bookService.convertToBookFormDto(book);
         model.addAttribute("bookForm", bookFormDto);
         return "book-form";
     }

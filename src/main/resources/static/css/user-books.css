@@ -28,7 +28,7 @@ body {
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
-    gap: 70px;
+    gap: 63px;
     margin-bottom: 100px;
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .name {
-    width: 200px;
+    width: 100%;
     font-size: 18px;
     text-align: center;
     font-weight: bold;
