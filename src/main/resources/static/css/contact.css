@@ -8,6 +8,8 @@
     text-align: center;
     display: inline-block;
     margin-top: 70px;
+    color: #39ac31;
+    font-weight: 600;
     font-family: "Arial", sans-serif;
 }
 
@@ -18,11 +20,12 @@
 .finish {
     text-align: center;
     font-weight: bolder;
+    color: #39ac31;
 }
 
 .contacts {
     display: flex;
-    margin: 30px 0 40px 0;
+    margin: 35px 0 40px 0;
     gap: 30px;
 }
 
