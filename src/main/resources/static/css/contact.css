@@ -19,3 +19,30 @@
     text-align: center;
     font-weight: bolder;
 }
+
+.contacts {
+    display: flex;
+    margin: 30px 0 40px 0;
+    gap: 30px;
+}
+
+.border {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 40px;
+    padding: 30px 30px 20px 30px;
+    box-shadow: 2px 2px 5px #ececec;
+}
+
+.color {
+    color: #39ac31;
+    font-weight: bolder;
+}
+
+.my-icon {
+    font-size: 35px;
+    color: #39ac31;
+}
