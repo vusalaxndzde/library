@@ -17,6 +17,12 @@ public class AdminController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/books")
+    public String showBooks(Model model) {
+        model.addAttribute("books", bookService.findAll());
+        return "books-table";
+    }
+
     @GetMapping("/showAddBookForm")
     public String showAddBookForm(Model model) {
         BookFormDto bookFormDto = new BookFormDto();
@@ -35,7 +41,7 @@ public class AdminController {
     @PostMapping("/save")
     public String saveBook(@ModelAttribute("bookForm") BookFormDto bookFormDto) {
         bookService.saveBookForm(bookFormDto);
-        return "redirect:/admin/showAddBookForm";
+        return "redirect:/admin/books";
     }
 
 }
