@@ -24,6 +24,9 @@
                 <div class="alert alert-danger info" th:if="${param.error}" role="alert">
                     Invalid username or password!
                 </div>
+                <div class="alert alert-success info" th:if="${param.success}" role="alert">
+                    Registered successfully!
+                </div>
                 <input type="text" name="username" placeholder="Enter your email">
                 <input type="password" name="password" placeholder="Enter your password">
                 <a href="#">Forgot password?</a>

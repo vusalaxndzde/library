@@ -18,6 +18,9 @@
         <div class="registration form">
             <header>Signup</header>
             <form action="#" th:action="@{/registration/save}" th:object="${user}" method="post">
+                <div class="alert alert-danger info" th:if="${param.error}" role="alert">
+                    Already registered with this e-mail.
+                </div>
                 <input type="text" th:field="*{name}" placeholder="Enter your name">
                 <input type="text" th:field="*{surname}" placeholder="Enter your surname">
                 <input type="email" th:field="*{email}" placeholder="Enter your email">
