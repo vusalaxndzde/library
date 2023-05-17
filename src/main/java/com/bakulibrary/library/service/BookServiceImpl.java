@@ -63,6 +63,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void deleteBookById(int id) {
+        bookRepository.deleteBookById(id);
+    }
+
+    @Override
     public BookFormDto convertToBookFormDto(Book book) {
         BookFormDto bookFormDto = new BookFormDto();
         bookFormDto.setName(book.getName());

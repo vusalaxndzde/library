@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/books-table.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,6 +23,7 @@
                 <th scope="col">id</th>
                 <th scope="col">name</th>
                 <th scope="col">author</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +31,14 @@
                 <td th:text="${book.id}"></td>
                 <td th:text="${book.name}"></td>
                 <td th:text="${book.author.authorName}"></td>
-                <td></td>
+                <td>
+                    <a href="#" th:href="@{/admin/showUpdateBookForm(id=${book.id})}" class="btn btn-primary" style="display: inline; margin-right: 5px">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                    <form action="#" th:action="@{/admin/deleteBook(id=${book.id})}" method="post" style="display: inline">
+                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

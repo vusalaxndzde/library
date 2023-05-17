@@ -44,4 +44,10 @@ public class AdminController {
         return "redirect:/admin/books";
     }
 
+    @PostMapping("/deleteBook")
+    public String deleteBook(@RequestParam("id") int id) {
+        bookService.deleteBookById(id);
+        return "redirect:/admin/books";
+    }
+
 }

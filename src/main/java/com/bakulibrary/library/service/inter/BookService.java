@@ -17,4 +17,6 @@ public interface BookService {
 
     BookFormDto convertToBookFormDto(Book book);
 
+    void deleteBookById(int id);
+
 }
