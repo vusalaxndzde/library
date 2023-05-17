@@ -25,7 +25,7 @@
             <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Log In</a>
             <a href="/registration" sec:authorize="!isAuthenticated()" class="btn btn-success mybtn">Sign Up</a>
             <div class="nav-item active username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
-            <a href="/admin/showAddBookForm" sec:authorize="hasRole('ADMIN')" class="btn btn-success mybtn">Add Book</a>
+            <a href="/admin/books" sec:authorize="hasRole('ADMIN')" class="btn btn-success mybtn">Admin</a>
             <form action="#" th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post">
                 <button type="submit" class="btn btn-success mybtn">Logout</button>
             </form>

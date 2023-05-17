@@ -17,31 +17,32 @@
 <body>
     <div th:replace="~{fragments/topnav :: navbar}"></div>
 
-    <table class="table table-striped mytable">
-        <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">name</th>
-                <th scope="col">author</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="book : ${books}">
-                <td th:text="${book.id}"></td>
-                <td th:text="${book.name}"></td>
-                <td th:text="${book.author.authorName}"></td>
-                <td>
-                    <a href="#" th:href="@{/admin/showUpdateBookForm(id=${book.id})}" class="btn btn-primary" style="display: inline; margin-right: 5px">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                    <form action="#" th:action="@{/admin/deleteBook(id=${book.id})}" method="post" style="display: inline">
-                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <a href="/admin/showAddBookForm" class="btn-add-book">Add book</a>
+        <table class="table table-striped mytable">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">author</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.name}"></td>
+                    <td th:text="${book.author.authorName}"></td>
+                    <td>
+                        <a href="#" th:href="@{/admin/showUpdateBookForm(id=${book.id})}" class="btn btn-primary" style="display: inline; margin-right: 7px"><i class="fa-solid fa-pen"></i></a>
+                        <form action="#" th:action="@{/admin/deleteBook(id=${book.id})}" method="post" style="display: inline">
+                            <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
