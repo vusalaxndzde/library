@@ -8,8 +8,8 @@ table.mytable {
     display: inline-block;
     padding: 10px 30px;
     margin: 150px 0 0 0;
-    background-color: #39ac31;
-    border: 1px solid #39ac31;
+    background-color: #68B984;
+    border: 1px solid #68B984;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -18,7 +18,7 @@ table.mytable {
 
 .btn-add-book:hover {
     background-color: white;
-    color: #39ac31;
+    color: #68B984;
     text-decoration: none;
     transition: 0.5s;
 }
