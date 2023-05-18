@@ -4,6 +4,12 @@ table.mytable {
     margin-bottom: 150px;
 }
 
+table tbody tr:hover {
+    cursor: pointer;
+    background-color: #e3e3e3 !important;
+    transition: 0.4s;
+}
+
 .btn-add-book {
     display: inline-block;
     padding: 10px 30px;
