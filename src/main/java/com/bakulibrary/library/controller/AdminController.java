@@ -46,8 +46,7 @@ public class AdminController {
     }
 
     @GetMapping("/deleteBook")
-    public String deleteBook(HttpServletRequest request) {
-        int id = Integer.parseInt(request.getParameter("id"));
+    public String deleteBook(@RequestParam("id") int id) {
         bookService.deleteBookById(id);
         return "redirect:/admin/books";
     }
