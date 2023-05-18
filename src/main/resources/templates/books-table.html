@@ -40,7 +40,7 @@
                     <td th:text="${book.author.authorName}"></td>
                     <td>
                         <a href="#" th:href="@{/admin/showUpdateBookForm(id=${book.id})}" class="btn btn-primary" style="display: inline; margin-right: 5px"><i class="fa-solid fa-pen"></i></a>
-                        <button class="btn btn-danger" type="submit" th:onclick="'setBookId(' + ${book.id} + ')'" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-danger" type="button" th:onclick="'setBookId(' + ${book.id} + ')'" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa-solid fa-trash"></i></button>
                         <!-- th:attr="onclick=|setBookId('${book.id}')|" -->
                     </td>
                 </tr>
