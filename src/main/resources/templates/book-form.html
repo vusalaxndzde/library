@@ -13,8 +13,10 @@
 </head>
 <body>
     <div th:replace="~{fragments/topnav :: navbar}"></div>
+
     <div style="padding: 0 500px; margin: 50px 0">
         <div class="container">
+            <h2 style="color: #68B984; margin: 40px 20px">Add book</h2>
             <form action="#" th:action="@{/admin/save}" th:object="${bookForm}" method="post">
                 <input type="hidden" th:field="*{id}">
                 <div class="row mb-4 col-4">
@@ -55,6 +57,7 @@
             </form>
         </div>
     </div>
+
     <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
