@@ -10,6 +10,7 @@ import com.bakulibrary.library.repository.GenreRepository;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -28,6 +29,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findAll() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public List<Book> findNewBooks() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -1);
+        Date date = calendar.getTime();
+
+        return bookRepository.findBookByAddedDateAfter(date);
     }
 
     @Override

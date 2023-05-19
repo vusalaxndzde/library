@@ -36,21 +36,21 @@
 				<hr>
 			</div>
 			<div class="body">
-				<div class="book-border" th:each="book : ${books}">
-					<a th:href="@{/book(id=${book.id})}">
+				<div class="book-border" th:each="newBook : ${newBooks}">
+					<a th:href="@{/book(id=${newBook.id})}">
 						<div class="book-image">
 							<div class="image">
-								<img th:src="${book.imageUrl}" th:alt="${book.name}" alt="" src="">
+								<img th:src="${newBook.imageUrl}" th:alt="${newBook.name}" alt="" src="">
 							</div>
 						</div>
 					</a>
 					<div class="name">
-						<p th:text="${book.name}"></p>
+						<p th:text="${newBook.name}"></p>
 					</div>
 					<div class="author">
-						<p th:text="${book.author.authorName}"></p>
+						<p th:text="${newBook.author.authorName}"></p>
 					</div>
-					<form action="#" th:action="@{/addBookToList(id=${book.id})}" method="post">
+					<form action="#" th:action="@{/addBookToList(id=${newBook.id})}" method="post">
 						<button type="submit" class="btn btn-success add-btn">Add to My Books</button>
 					</form>
 				</div>

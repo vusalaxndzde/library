@@ -24,6 +24,7 @@ public class IndexController {
     @GetMapping("/")
     public String showIndex(Model model) {
         model.addAttribute("books", bookService.findAll());
+        model.addAttribute("newBooks", bookService.findNewBooks());
         return "index";
     }
 

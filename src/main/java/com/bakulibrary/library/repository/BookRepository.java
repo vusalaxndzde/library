@@ -7,11 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> findBookByNameContainsIgnoreCase(String name);
+
+    List<Book> findBookByAddedDateAfter(Date date);
 
     @Modifying
     @Transactional
