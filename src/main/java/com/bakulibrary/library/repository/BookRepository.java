@@ -16,8 +16,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDate(String name);
 
-    @Query(value = "select * from book where name = :name order by name", nativeQuery = true)
-    List<Book> findBookByNameContainsIgnoreCaseOrderByName(@Param("name") String name);
+    List<Book> findBookByNameContainsIgnoreCaseOrderByName(String name);
 
     List<Book> findBookByAddedDateAfter(Date date);
 

@@ -39,8 +39,8 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String showSearch(@RequestParam("q") String question,
-                             @RequestParam("sort") String sortType,
+    public String showSearch(@RequestParam(value = "q", required = false) String question,
+                             @RequestParam(value = "sort", required = false) String sortType,
                              Model model) {
         List<Book> books = bookService.searchAndSort(question, sortType);
         model.addAttribute("books", books);
