@@ -38,6 +38,10 @@ body {
     margin-top: 50px;
 }
 
+.search-form .search-input {
+    display: inline-block;
+}
+
 .search-form .search-input input {
     width: 450px;
     margin-right: 10px;
@@ -53,6 +57,11 @@ body {
     margin-top: 50px;
     margin-bottom: 30px;
     text-decoration: underline;
+}
+
+.sort {
+    display: inline-block;
+    margin-left: 35px;
 }
 
 .result {

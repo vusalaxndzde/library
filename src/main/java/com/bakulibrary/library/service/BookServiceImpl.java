@@ -10,7 +10,6 @@ import com.bakulibrary.library.repository.GenreRepository;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -49,6 +48,29 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findBookByNameContainsIgnoreCase(String name) {
         return bookRepository.findBookByNameContainsIgnoreCase(name);
+    }
+
+    @Override
+    public List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDate(String name) {
+        return bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDate(name);
+    }
+
+    @Override
+    public List<Book> findBookByNameContainsIgnoreCaseOrderByName(String name) {
+        return bookRepository.findBookByNameContainsIgnoreCaseOrderByName(name);
+    }
+
+    @Override
+    public List<Book> searchAndSort(String name, String sortType) {
+        List<Book> books;
+        if (sortType.equals("date")) {
+            books = bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDate(name);
+        } else if (sortType.equals("name")) {
+            books = bookRepository.findBookByNameContainsIgnoreCaseOrderByName(name);
+        } else {
+            books = bookRepository.findBookByNameContainsIgnoreCase(name);
+        }
+        return books;
     }
 
     @Override

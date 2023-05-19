@@ -39,8 +39,10 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String showSearch(@RequestParam("q") String question, Model model) {
-        List<Book> books = bookService.findBookByNameContainsIgnoreCase(question);
+    public String showSearch(@RequestParam("q") String question,
+                             @RequestParam("sort") String sortType,
+                             Model model) {
+        List<Book> books = bookService.searchAndSort(question, sortType);
         model.addAttribute("books", books);
         return "search";
     }

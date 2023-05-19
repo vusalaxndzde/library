@@ -3,7 +3,6 @@ package com.bakulibrary.library.service.inter;
 import com.bakulibrary.library.dto.BookFormDto;
 import com.bakulibrary.library.entity.Book;
 
-import java.util.Date;
 import java.util.List;
 
 public interface BookService {
@@ -15,6 +14,12 @@ public interface BookService {
     Book findById(int id);
 
     List<Book> findBookByNameContainsIgnoreCase(String name);
+
+    List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDate(String name);
+
+    List<Book> findBookByNameContainsIgnoreCaseOrderByName(String name);
+
+    List<Book> searchAndSort(String name, String sortType);
 
     void saveBookForm(BookFormDto bookFormDto);
 
