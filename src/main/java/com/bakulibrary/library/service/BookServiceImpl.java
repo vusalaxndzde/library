@@ -10,13 +10,10 @@ import com.bakulibrary.library.repository.GenreRepository;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
 public class BookServiceImpl implements BookService {
-
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;

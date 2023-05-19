@@ -37,6 +37,9 @@
                             <p>Pages: </p><span th:text="' ' + ${book.totalPages}"></span>
                         </div>
                         <div>
+                            <p>Added date: </p><span th:text="' ' + ${addedDate}"></span>
+                        </div>
+                        <div>
                             <p>Genre(s): </p><span th:each="genre : ${book.genres}" th:text="' ' + ${genre.genreName}"></span>
                         </div>
                     </div>

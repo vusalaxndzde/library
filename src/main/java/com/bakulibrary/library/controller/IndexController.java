@@ -7,10 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
 public class IndexController {
+
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
 
     private final BookService bookService;
 
@@ -27,7 +30,10 @@ public class IndexController {
     @GetMapping("/book")
     public String showBook(@RequestParam("id") int id, Model model) {
         Book book = bookService.findById(id);
+        String addedDate = dateFormat.format(book.getAddedDate());
         model.addAttribute("book", book);
+        model.addAttribute("addedDate", addedDate);
+
         return "book";
     }
 
