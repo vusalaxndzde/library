@@ -10,13 +10,13 @@ import com.bakulibrary.library.repository.GenreRepository;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class BookServiceImpl implements BookService {
+
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
@@ -52,6 +52,9 @@ public class BookServiceImpl implements BookService {
         book.setAbout(bookFormDto.getAbout());
         book.setTotalPages(bookFormDto.getTotalPages());
         book.setImageUrl("/image/" + bookFormDto.getImageUrl());
+
+        Date addedDate = new Date(System.currentTimeMillis());
+        book.setAddedDate(addedDate);
 
         String authorName = bookFormDto.getAuthorName();
         book.setAuthor(checkAuthorExist(authorName));
