@@ -18,40 +18,68 @@
 	<div th:replace="~{fragments/topnav :: navbar}"></div>
 
 	<div class="container">
-		<div class="body-head">
-			<h4>The books currently present in the library are:</h4>
-			<hr>
-		</div>
-		<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" style="margin-top: 30px" role="alert">
+		<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" style="margin-top: 40px" role="alert">
 			<strong>Error!</strong> The book you want to add is available on My Books.
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" style="margin-top: 30px" role="alert">
+		<div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" style="margin-top: 40px" role="alert">
 			<strong>Success!</strong> The book was added to My Books.
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<div class="body">
-			<div class="book-border" th:each="book : ${books}">
-				<a th:href="@{/book(id=${book.id})}">
-					<div class="book-image">
-						<div class="image">
-							<img th:src="${book.imageUrl}" th:alt="${book.name}" alt="" src="">
+		<div>
+			<div class="body-head">
+				<h4>New books:</h4>
+				<hr>
+			</div>
+			<div class="body">
+				<div class="book-border" th:each="book : ${books}">
+					<a th:href="@{/book(id=${book.id})}">
+						<div class="book-image">
+							<div class="image">
+								<img th:src="${book.imageUrl}" th:alt="${book.name}" alt="" src="">
+							</div>
 						</div>
+					</a>
+					<div class="name">
+						<p th:text="${book.name}"></p>
 					</div>
-				</a>
-				<div class="name">
-					<p th:text="${book.name}"></p>
+					<div class="author">
+						<p th:text="${book.author.authorName}"></p>
+					</div>
+					<form action="#" th:action="@{/addBookToList(id=${book.id})}" method="post">
+						<button type="submit" class="btn btn-success add-btn">Add to My Books</button>
+					</form>
 				</div>
-				<div class="author">
-					<p th:text="${book.author.authorName}"></p>
+			</div>
+		</div>
+		<div>
+			<div class="body-head">
+				<h4>The books currently present in the library are:</h4>
+				<hr>
+			</div>
+			<div class="body">
+				<div class="book-border" th:each="book : ${books}">
+					<a th:href="@{/book(id=${book.id})}">
+						<div class="book-image">
+							<div class="image">
+								<img th:src="${book.imageUrl}" th:alt="${book.name}" alt="" src="">
+							</div>
+						</div>
+					</a>
+					<div class="name">
+						<p th:text="${book.name}"></p>
+					</div>
+					<div class="author">
+						<p th:text="${book.author.authorName}"></p>
+					</div>
+					<form action="#" th:action="@{/addBookToList(id=${book.id})}" method="post">
+						<button type="submit" class="btn btn-success add-btn">Add to My Books</button>
+					</form>
 				</div>
-				<form action="#" th:action="@{/addBookToList(id=${book.id})}" method="post">
-					<button type="submit" class="btn btn-success add-btn">Add to My Books</button>
-				</form>
 			</div>
 		</div>
 	</div>
