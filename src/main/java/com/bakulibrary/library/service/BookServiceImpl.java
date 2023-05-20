@@ -63,7 +63,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> searchAndSort(String name, String sortType) {
         List<Book> books;
-        if (sortType != null && name != null) {
+
+        if (name != null && name.equals("")) {
+            name = null;
+        }
+
+        if (name != null && sortType != null) {
             if (sortType.equals("date")) {
                 books = bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDate(name);
             } else if (sortType.equals("name")) {
