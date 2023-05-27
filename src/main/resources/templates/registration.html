@@ -21,10 +21,22 @@
                 <div class="alert alert-danger info" th:if="${param.error}" role="alert">
                     Already registered with this e-mail.
                 </div>
-                <input type="text" th:field="*{name}" placeholder="Enter your name">
-                <input type="text" th:field="*{surname}" placeholder="Enter your surname">
-                <input type="email" th:field="*{email}" placeholder="Enter your email">
-                <input type="password" th:field="*{password}" placeholder="Create a password">
+                <div>
+                    <input type="text" th:field="*{name}" placeholder="Enter your name">
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{'name'}" class="text-error"></p>
+                </div>
+                <div>
+                    <input type="text" th:field="*{surname}" placeholder="Enter your surname">
+                    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{'surname'}" class="text-error"></p>
+                </div>
+                <div>
+                    <input type="email" th:field="*{email}" placeholder="Enter your email">
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{'email'}" class="text-error"></p>
+                </div>
+                <div>
+                    <input type="password" th:field="*{password}" placeholder="Create a password">
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{'password'}" class="text-error"></p>
+                </div>
                 <input type="submit" class="button" value="Signup">
             </form>
             <div class="signup">
