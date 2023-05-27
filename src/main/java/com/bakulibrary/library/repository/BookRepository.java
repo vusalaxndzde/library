@@ -14,7 +14,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> findBookByNameContainsIgnoreCase(String name);
 
-    List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDate(String name);
+    List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDateDesc(String name);
 
     List<Book> findBookByNameContainsIgnoreCaseOrderByName(String name);
 

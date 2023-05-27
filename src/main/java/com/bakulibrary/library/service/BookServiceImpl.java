@@ -51,8 +51,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDate(String name) {
-        return bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDate(name);
+    public List<Book> findBookByNameContainsIgnoreCaseOrderByAddedDateDesc(String name) {
+        return bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDateDesc(name);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class BookServiceImpl implements BookService {
 
         if (name != null && sortType != null) {
             if (sortType.equals("date")) {
-                books = bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDate(name);
+                books = bookRepository.findBookByNameContainsIgnoreCaseOrderByAddedDateDesc(name);
             } else if (sortType.equals("name")) {
                 books = bookRepository.findBookByNameContainsIgnoreCaseOrderByName(name);
             } else {
