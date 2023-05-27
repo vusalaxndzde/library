@@ -12,16 +12,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
 
-    @NotBlank(message = "name cannot be blank")
+    @NotBlank(message = "Name cannot be blank!")
     private String name;
 
-    @NotBlank(message = "name cannot be blank")
+    @NotBlank(message = "Surname cannot be blank!")
     private String surname;
 
-    @Email(message = "invalid email")
+    @NotBlank(message = "Email cannot be blank!")
+    @Email(message = "Invalid email!")
     private String email;
 
-    @Min(value = 5, message = "password must be at least 5 symbol")
+    @Min(value = 5, message = "Password must be at least 5 symbol!")
     private String password;
 
 }

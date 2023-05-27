@@ -23,19 +23,27 @@
                 </div>
                 <div>
                     <input type="text" th:field="*{name}" placeholder="Enter your name">
-                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{'name'}" class="text-error"></p>
+                    <div th:if="${#fields.hasErrors('name')}" class="alert alert-danger info">
+                        <span th:errors="*{name}"></span>
+                    </div>
                 </div>
                 <div>
                     <input type="text" th:field="*{surname}" placeholder="Enter your surname">
-                    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{'surname'}" class="text-error"></p>
+                    <div th:if="${#fields.hasErrors('surname')}" class="alert alert-danger info">
+                        <span th:errors="*{surname}"></span>
+                    </div>
                 </div>
                 <div>
-                    <input type="email" th:field="*{email}" placeholder="Enter your email">
-                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{'email'}" class="text-error"></p>
+                    <input type="text" th:field="*{email}" placeholder="Enter your email">
+                    <div th:if="${#fields.hasErrors('email')}" class="alert alert-danger info">
+                        <span th:errors="*{email}"></span>
+                    </div>
                 </div>
                 <div>
                     <input type="password" th:field="*{password}" placeholder="Create a password">
-                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{'password'}" class="text-error"></p>
+                    <div th:if="${#fields.hasErrors('password')}" class="alert alert-danger info">
+                        <span th:errors="*{password}"></span>
+                    </div>
                 </div>
                 <input type="submit" class="button" value="Signup">
             </form>
