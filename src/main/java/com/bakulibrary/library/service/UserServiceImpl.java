@@ -1,10 +1,12 @@
 package com.bakulibrary.library.service;
 
+import com.bakulibrary.library.dto.UserDTO;
 import com.bakulibrary.library.entity.Role;
 import com.bakulibrary.library.entity.User;
 import com.bakulibrary.library.repository.RoleRepository;
 import com.bakulibrary.library.repository.UserRepository;
 import com.bakulibrary.library.service.inter.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +22,13 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    private final ModelMapper modelMapper;
+
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -47,6 +52,11 @@ public class UserServiceImpl implements UserService {
         }
         user.setRoles(Collections.singletonList(role));
         userRepository.save(user);
+    }
+
+    @Override
+    public User convertUserDTOToUser(UserDTO userDTO) {
+        return modelMapper.map(userDTO, User.class);
     }
 
     public Role checkRoleExists() {

@@ -17,7 +17,7 @@
     <div class="mycontainer">
         <div class="registration form">
             <header>Signup</header>
-            <form action="#" th:action="@{/registration/save}" th:object="${user}" method="post">
+            <form action="#" th:action="@{/registration/save}" th:object="${userDTO}" method="post">
                 <div class="alert alert-danger info" th:if="${param.error}" role="alert">
                     Already registered with this e-mail.
                 </div>
