@@ -37,15 +37,13 @@ public class AuthController {
         if (tempUser != null) {
             return "redirect:/registration?error";
         }
-        System.out.println(userDTO);
 
         if (bindingResult.hasErrors()) {
             return "registration";
         }
 
         User user = userService.convertUserDTOToUser(userDTO);
-        System.out.println(user);
-//        userService.saveUser(user);
+        userService.saveUser(user);
         return "redirect:/login?success";
     }
 
