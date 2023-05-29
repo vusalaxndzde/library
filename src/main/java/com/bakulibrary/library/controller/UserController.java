@@ -39,11 +39,9 @@ public class UserController {
         String confirmNewPassword = updatePasswordDTO.getConfirmNewPassword();
 
         if (!newPassword.equals(confirmNewPassword)) {
-            System.out.println("1");
-            bindingResult.rejectValue("confirmNewPassword", null, "not match with new password!");
+            bindingResult.rejectValue("confirmNewPassword", null, "Not match with new password!");
         }
         if (bindingResult.hasErrors()) {
-            System.out.println("2");
             return "user-details";
         }
 
@@ -53,13 +51,13 @@ public class UserController {
         boolean passwordMatches = passwordEncoder.matches(currentPassword, user.getPassword());
 
         if (!passwordMatches) {
-            bindingResult.rejectValue("currentPassword", null, "wrong password!");
+            bindingResult.rejectValue("currentPassword", null, "Wrong password!");
         }
         if (bindingResult.hasErrors()) {
             return "user-details";
         }
 
-//        userService.updatePassword(newPassword, email);
+        userService.updatePassword(newPassword, email);
         return "redirect:/account";
     }
 
