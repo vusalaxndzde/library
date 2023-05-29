@@ -1,8 +1,11 @@
 package com.bakulibrary.library.controller;
 
 import com.bakulibrary.library.dto.UpdatePasswordDTO;
+import com.bakulibrary.library.service.inter.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/account")
 public class UserController {
 
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
     public String showUserDetails(Model model) {
         model.addAttribute("updatePassword", new UpdatePasswordDTO());
@@ -19,7 +28,20 @@ public class UserController {
     }
 
     @PostMapping("/updatePassword")
-    public String updatePassword(@ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO) {
+    public String updatePassword(@ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO, Authentication authentication, BindingResult bindingResult) {
+
+        if (!updatePasswordDTO.getNewPassword().equals(updatePasswordDTO.getConfirmNewPassword())) {
+            bindingResult.rejectValue("confirmNewPassword",
+                                "4001",
+                            "not match with new password");
+        }
+
+        if (bindingResult.hasErrors()) {
+            return "user-details";
+        }
+
+        String email = authentication.getName();
+        
 
         return "redirect:/account";
     }
