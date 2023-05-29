@@ -41,6 +41,7 @@ public class WebSecurityConfig {
                             .requestMatchers("/", "/book/**", "/search/**", "/contact").permitAll()
                             .requestMatchers("/registration").permitAll()
                             .requestMatchers("/css/**", "/image/**", "/js/**").permitAll()
+                            .requestMatchers("/account/**").hasRole("USER")
                             .requestMatchers("/addBookToList","/account/books/**").hasRole("USER")
                             .requestMatchers("/test", "/admin/**").hasRole("ADMIN")
                             .anyRequest().permitAll()
