@@ -3,7 +3,9 @@ package com.bakulibrary.library.controller;
 import com.bakulibrary.library.dto.UpdatePasswordDTO;
 import com.bakulibrary.library.entity.User;
 import com.bakulibrary.library.service.inter.UserService;
+import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -29,30 +33,33 @@ public class UserController {
     }
 
     @PostMapping("/updatePassword")
-    public String updatePassword(@ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO, Authentication authentication, BindingResult bindingResult) {
+    public String updatePassword(@Valid @ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO,  BindingResult bindingResult, Authentication authentication, Model model) {
 
-        if (!updatePasswordDTO.getNewPassword().equals(updatePasswordDTO.getConfirmNewPassword())) {
-            bindingResult.rejectValue("confirmNewPassword",
-                                "4001",
-                            "not match with new password!");
+        String newPassword = updatePasswordDTO.getNewPassword();
+        String confirmNewPassword = updatePasswordDTO.getConfirmNewPassword();
+
+        if (!newPassword.equals(confirmNewPassword)) {
+            System.out.println("1");
+            bindingResult.rejectValue("confirmNewPassword", null, "not match with new password!");
         }
         if (bindingResult.hasErrors()) {
+            System.out.println("2");
             return "user-details";
         }
 
         String email = authentication.getName();
+        User user = userService.findUserByEmail(email);
         String currentPassword = updatePasswordDTO.getCurrentPassword();
-        User user = userService.findUserByEmailAndPassword(email, currentPassword);
-        if (user == null) {
-            bindingResult.rejectValue("currentPassword",
-                                "404",
-                            "wrong password!");
+        boolean passwordMatches = passwordEncoder.matches(currentPassword, user.getPassword());
+
+        if (!passwordMatches) {
+            bindingResult.rejectValue("currentPassword", null, "wrong password!");
         }
         if (bindingResult.hasErrors()) {
             return "user-details";
         }
 
-
+//        userService.updatePassword(newPassword, email);
         return "redirect:/account";
     }
 

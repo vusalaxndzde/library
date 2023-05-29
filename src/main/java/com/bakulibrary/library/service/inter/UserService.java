@@ -13,7 +13,7 @@ public interface UserService {
 
     User findUserByEmailAndPassword(String email, String password);
 
-    void updatePassword(String password);
+    void updatePassword(String password, String email);
 
     void saveUser(User user);
 

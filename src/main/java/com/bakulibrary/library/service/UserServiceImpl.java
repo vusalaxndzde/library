@@ -47,8 +47,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updatePassword(String password) {
-
+    public void updatePassword(String password, String email) {
+        password = passwordEncoder.encode(password);
+        userRepository.updatePassword(password, email);
     }
 
     @Override

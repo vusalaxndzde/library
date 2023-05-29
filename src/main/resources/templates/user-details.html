@@ -14,11 +14,25 @@
 <body>
     <div th:replace="~{fragments/topnav :: navbar}"></div>
     <div class="container">
-        <form action="#" th:action="@{account/updatePassword}" method="post" th:object="${updatePassword}">
+
+        <form action="#" th:action="@{account/updatePassword}" th:object="${updatePassword}" method="post">
+
             <input type="password" th:field="*{currentPassword}"><br>
+            <div th:if="${#fields.hasErrors('currentPassword')}">
+                <span th:errors="*{currentPassword}"></span>
+            </div>
+
             <input type="password" th:field="*{newPassword}"><br>
+            <div th:if="${#fields.hasErrors('newPassword')}">
+                <span th:errors="*{newPassword}"></span>
+            </div>
+
             <input type="password" th:field="*{confirmNewPassword}"><br>
-            <button type="submit">Update Password</button>
+            <div th:if="${#fields.hasErrors('confirmNewPassword')}">
+                <span th:errors="*{confirmNewPassword}"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Update Password</button>
         </form>
     </div>
 </body>
