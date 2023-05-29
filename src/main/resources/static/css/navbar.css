@@ -104,3 +104,8 @@ button {
 	margin-left: 15px;
 	margin-right: 5px;
 }
+
+.username:hover {
+	text-decoration: none;
+	color: white;
+}
