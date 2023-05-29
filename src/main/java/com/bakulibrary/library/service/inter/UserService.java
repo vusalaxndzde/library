@@ -11,6 +11,10 @@ public interface UserService {
 
     User findUserByEmail(String email);
 
+    User findUserByEmailAndPassword(String email, String password);
+
+    void updatePassword(String password);
+
     void saveUser(User user);
 
     User convertUserDTOToUser(UserDTO userDTO);
