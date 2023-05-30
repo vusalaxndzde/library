@@ -3,6 +3,7 @@ package com.bakulibrary.library.controller;
 import com.bakulibrary.library.dto.UpdatePasswordDTO;
 import com.bakulibrary.library.entity.User;
 import com.bakulibrary.library.service.inter.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +34,9 @@ public class UserController {
     }
 
     @PostMapping("/updatePassword")
-    public String updatePassword(@Valid @ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO,  BindingResult bindingResult, Authentication authentication, Model model) {
+    public String updatePassword(@Valid @ModelAttribute("updatePassword") UpdatePasswordDTO updatePasswordDTO,
+                                 BindingResult bindingResult,
+                                 HttpSession httpSession) {
 
         String newPassword = updatePasswordDTO.getNewPassword();
         String confirmNewPassword = updatePasswordDTO.getConfirmNewPassword();
@@ -45,8 +48,7 @@ public class UserController {
             return "user-details";
         }
 
-        String email = authentication.getName();
-        User user = userService.findUserByEmail(email);
+        User user = (User) httpSession.getAttribute("loggedInUser");
         String currentPassword = updatePasswordDTO.getCurrentPassword();
         boolean passwordMatches = passwordEncoder.matches(currentPassword, user.getPassword());
 
@@ -57,8 +59,8 @@ public class UserController {
             return "user-details";
         }
 
-        userService.updatePassword(newPassword, email);
-        return "redirect:/account";
+        userService.updatePassword(newPassword, user.getEmail());
+        return "redirect:/account?success";
     }
 
 }
