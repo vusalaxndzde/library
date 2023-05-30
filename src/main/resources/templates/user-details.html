@@ -19,6 +19,9 @@
         <div class="update-password">
             <h3>Change password</h3>
             <hr>
+            <div th:if="${param.success}" class="alert alert-success info">
+                Password changed
+            </div>
             <form action="#" th:action="@{/account/updatePassword}" th:object="${updatePassword}" method="post">
                 <label for="current-pwd">Old password</label>
                 <input type="password" th:field="*{currentPassword}" id="current-pwd" class="form-control"><br>
