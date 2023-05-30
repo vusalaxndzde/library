@@ -19,18 +19,18 @@
             <h3>Change password</h3>
             <hr>
             <form action="#" th:action="@{/account/updatePassword}" th:object="${updatePassword}" method="post">
-                <label>Old password</label>
-                <input type="password" th:field="*{currentPassword}" class="form-control"><br>
+                <label for="current-pwd">Old password</label>
+                <input type="password" th:field="*{currentPassword}" id="current-pwd" class="form-control"><br>
                 <div th:if="${#fields.hasErrors('currentPassword')}" class="alert alert-danger info">
                     <span th:errors="*{currentPassword}"></span>
                 </div>
-                <label>New password</label>
-                <input type="password" th:field="*{newPassword}" class="form-control"><br>
+                <label for="new-pwd">New password</label>
+                <input type="password" th:field="*{newPassword}" id="new-pwd" class="form-control"><br>
                 <div th:if="${#fields.hasErrors('newPassword')}" class="alert alert-danger info">
                     <span th:errors="*{newPassword}"></span>
                 </div>
-                <label>Confirm new password</label>
-                <input type="password" th:field="*{confirmNewPassword}" class="form-control"><br>
+                <label for="confirm-new-pwd">Confirm new password</label>
+                <input type="password" th:field="*{confirmNewPassword}" id="confirm-new-pwd" class="form-control"><br>
                 <div th:if="${#fields.hasErrors('confirmNewPassword')}" class="alert alert-danger info">
                     <span th:errors="*{confirmNewPassword}"></span>
                 </div>
