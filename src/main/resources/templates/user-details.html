@@ -14,7 +14,7 @@
 </head>
 <body>
     <div th:replace="~{fragments/topnav :: navbar}"></div>
-    <div class="container">
+    <div class="container content">
         <div class="update-password">
             <h3>Change password</h3>
             <hr>
@@ -34,9 +34,10 @@
                 <div th:if="${#fields.hasErrors('confirmNewPassword')}" class="alert alert-danger info">
                     <span th:errors="*{confirmNewPassword}"></span>
                 </div>
-                <button type="submit" class="btn btn-success">Update Password</button>
+                <button type="submit" class="btn btn-success">Update password</button>
             </form>
         </div>
     </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
