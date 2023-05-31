@@ -27,10 +27,12 @@
     display: flex;
     margin: 35px 0 40px 0;
     gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .border {
-    width: 320px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
