@@ -58,3 +58,11 @@
 	color: #aaa;
 	margin-bottom: 0;
 }
+
+@media(max-width: 600px) {
+	footer .list-inline {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+}

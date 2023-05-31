@@ -23,7 +23,6 @@ public class LoginSuccessListener implements ApplicationListener<AuthenticationS
         User user = (User) event.getAuthentication().getPrincipal();
         String email = user.getUsername();
         httpSession.setAttribute("loggedInUser", userService.findUserByEmail(email));
-
     }
 
 }
