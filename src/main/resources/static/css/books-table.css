@@ -10,21 +10,45 @@ table tbody tr:hover {
     transition: 0.4s;
 }
 
-.btn-add-book {
+.btn-add {
     display: inline-block;
     padding: 10px 30px;
-    margin: 150px 0 0 0;
-    background-color: #68B984;
-    border: 1px solid #68B984;
+    margin: 150px 20px 0 0;
     color: white;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bolder;
 }
 
-.btn-add-book:hover {
+.btn-add:hover {
     background-color: white;
-    color: #68B984;
     text-decoration: none;
     transition: 0.5s;
+}
+
+.btn-add-book {
+    background-color: #68B984;
+    border: 1px solid #68B984;
+}
+
+.btn-add-book:hover {
+    color: #68B984;
+}
+
+.btn-add-user {
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+}
+
+.btn-add-user:hover {
+    color: dodgerblue;
+}
+
+.btn-add-admin {
+    background-color: red;
+    border: 1px solid red;
+}
+
+.btn-add-admin:hover {
+    color: red;
 }
