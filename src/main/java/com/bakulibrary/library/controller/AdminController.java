@@ -3,7 +3,6 @@ package com.bakulibrary.library.controller;
 import com.bakulibrary.library.dto.BookFormDto;
 import com.bakulibrary.library.entity.Book;
 import com.bakulibrary.library.service.inter.BookService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +48,12 @@ public class AdminController {
     public String deleteBook(@RequestParam("id") int id) {
         bookService.deleteBookById(id);
         return "redirect:/admin/books";
+    }
+
+    @GetMapping("/addUser")
+    public String addUser(Model model) {
+        model.addAttribute("userForm");
+        return "user-form";
     }
 
 }
