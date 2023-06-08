@@ -25,4 +25,6 @@ public class UserDTO {
     @Size(min = 5, message = "Password must be at least 5 symbol!")
     private String password;
 
+    private String role;
+
 }
