@@ -75,7 +75,7 @@ public class AdminController {
         }
 
         userService.saveMember(userDTO);
-        return "user-form";
+        return "redirect:/admin/books";
     }
 
 }

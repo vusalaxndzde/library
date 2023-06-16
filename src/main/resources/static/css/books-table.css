@@ -35,20 +35,11 @@ table tbody tr:hover {
     color: #68B984;
 }
 
-.btn-add-user {
+.btn-add-member {
     background-color: dodgerblue;
     border: 1px solid dodgerblue;
 }
 
-.btn-add-user:hover {
+.btn-add-member:hover {
     color: dodgerblue;
-}
-
-.btn-add-admin {
-    background-color: red;
-    border: 1px solid red;
-}
-
-.btn-add-admin:hover {
-    color: red;
 }
