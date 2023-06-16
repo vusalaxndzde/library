@@ -71,11 +71,10 @@ public class AdminController {
         }
 
         if (bindingResult.hasErrors()) {
-            return "redirect:/admin/addUser";
+            return "user-form";
         }
 
-        User user = userService.convertUserDTOToUser(userDTO);
-        System.out.println(user);
+        userService.saveMember(userDTO);
         return "user-form";
     }
 

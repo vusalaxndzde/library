@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class UserServiceImpl implements UserService {
             role = checkRoleExists("USER");
         }
         user.setRoles(Collections.singletonList(role));
+
         userRepository.save(user);
     }
 
@@ -70,7 +72,18 @@ public class UserServiceImpl implements UserService {
         Role role = roleRepository.findRoleByRoleName(userDTO.getRole());
         if (role == null) {
             role = checkRoleExists(userDTO.getRole());
+            if (userDTO.getRole().equals("ADMIN")) {
+                checkRoleExists("USER");
+            }
         }
+
+        if (userDTO.getRole().equals("ADMIN")) {
+            user.setRoles(Arrays.asList(role, roleRepository.findRoleByRoleName("USER")));
+        } else {
+            user.setRoles(Collections.singletonList(role));
+        }
+
+        userRepository.save(user);
     }
 
     @Override
