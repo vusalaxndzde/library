@@ -1,6 +1,7 @@
 package com.bakulibrary.library.controller;
 
 import com.bakulibrary.library.dto.BookFormDto;
+import com.bakulibrary.library.dto.UserDTO;
 import com.bakulibrary.library.entity.Book;
 import com.bakulibrary.library.service.inter.BookService;
 import org.springframework.stereotype.Controller;
@@ -52,7 +53,7 @@ public class AdminController {
 
     @GetMapping("/addUser")
     public String addUser(Model model) {
-        model.addAttribute("userForm");
+        model.addAttribute("userForm", new UserDTO());
         return "user-form";
     }
 
