@@ -56,10 +56,21 @@ public class UserServiceImpl implements UserService {
 
         Role role = roleRepository.findRoleByRoleName("USER");
         if (role == null) {
-            role = checkRoleExists();
+            role = checkRoleExists("USER");
         }
         user.setRoles(Collections.singletonList(role));
         userRepository.save(user);
+    }
+
+    @Override
+    public void saveMember(UserDTO userDTO) {
+        User user = convertUserDTOToUser(userDTO);
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+
+        Role role = roleRepository.findRoleByRoleName(userDTO.getRole());
+        if (role == null) {
+            role = checkRoleExists(userDTO.getRole());
+        }
     }
 
     @Override
@@ -67,9 +78,9 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(userDTO, User.class);
     }
 
-    public Role checkRoleExists() {
+    public Role checkRoleExists(String roleName) {
         Role role = new Role();
-        role.setRoleName("USER");
+        role.setRoleName(roleName);
         return roleRepository.save(role);
     }
 

@@ -7,11 +7,38 @@
 </head>
 <body>
     <div>
-        <form action="#" th:action="@{admin/addUser}" method="post">
-            <input type="text">
-            <input type="text">
-            <input type="email">
-            <input type="password">
+        <form action="#" th:action="@{/admin/addUser}" th:object="${userForm}" method="post">
+            <div>
+                <input type="text" th:field="*{name}" placeholder="Name">
+                <div th:if="${#fields.hasErrors('name')}">
+                    <span th:errors="*{name}"></span>
+                </div>
+            </div>
+            <div>
+                <input type="text" th:field="*{surname}" placeholder="Surname">
+                <div th:if="${#fields.hasErrors('surname')}">
+                    <span th:errors="*{surname}"></span>
+                </div>
+            </div>
+            <div>
+                <input type="email" th:field="*{email}" placeholder="Email">
+                <div th:if="${#fields.hasErrors('email')}">
+                    <span th:errors="*{email}"></span>
+                </div>
+            </div>
+            <div>
+                <input type="password" th:field="*{password}" placeholder="Password">
+                <div th:if="${#fields.hasErrors('password')}">
+                    <span th:errors="*{password}"></span>
+                </div>
+            </div>
+            <div>
+                <select name="role" id="role" th:field="*{role}">
+                    <option value="ADMIN" selected>Admin</option>
+                    <option value="USER">User</option>
+                </select>
+            </div>
+            <button type="submit">Add member</button>
         </form>
     </div>
 </body>

@@ -17,6 +17,8 @@ public interface UserService {
 
     void saveUser(User user);
 
+    void saveMember(UserDTO userDTO);
+
     User convertUserDTOToUser(UserDTO userDTO);
 
 }
