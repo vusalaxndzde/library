@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Book</title>
+    <link rel="stylesheet" href="/css/book-form.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
@@ -16,7 +17,7 @@
 
     <div style="padding: 0 500px; margin: 50px 0">
         <div class="container">
-            <h2 style="color: #68B984; margin: 40px 20px">Add book</h2>
+            <h2 class="title">Add book</h2>
             <form action="#" th:action="@{/admin/save}" th:object="${bookForm}" method="post">
                 <input type="hidden" th:field="*{id}">
                 <div class="row mb-4 col-4">
