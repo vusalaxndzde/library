@@ -94,19 +94,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
-<!--			<plugin>-->
-<!--				<groupId>org.liquibase</groupId>-->
-<!--				<artifactId>liquibase-maven-plugin</artifactId>-->
-<!--				<version>${liquibase.version}</version>-->
-<!--				<configuration>-->
-<!--					<driver>com.mysql.jdbc.Driver</driver>-->
-<!--					<url>jdbc:mysql://localhost:3306/library</url>-->
-<!--					<username>root</username>-->
-<!--					<password />-->
-<!--					<outputChangeLogFile>src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
 		</plugins>
 	</build>
 
