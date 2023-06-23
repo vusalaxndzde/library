@@ -17,7 +17,7 @@
 <body>
 	<div th:replace="~{fragments/topnav :: navbar}"></div>
 
-	<div class="container">
+	<div class="container mycontent">
 		<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" style="margin-top: 40px" role="alert">
 			<strong>Error!</strong> The book you want to add is available on My Books.
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
