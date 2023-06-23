@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01" author="vusalaxndzde">
+        <comment>Inserting Genre records</comment>
+        <insert tableName="genre">
+            <column name="id" autoIncrement="true"/>
+            <column name="genre_name" value="Adventure"/>
+        </insert>
+
+        <!--
+        To update the company table data on precondition
+        if name is techgeeknext_company_03 then update employee to 05
+        <preConditions>
+                <dbms type="mysql"/>
+            </preConditions>
+            <update tableName="company">
+                <column name="employee" value="05"/>
+                <where>name = 'techgeeknext_company_03'</where>
+            </update>
+        !-->
+
+    </changeSet>
+</databaseChangeLog>
