@@ -12,18 +12,6 @@
             <column name="id" autoIncrement="true"/>
             <column name="genre_name" value="Adventure"/>
         </insert>
-
-        <!--
-        To update the company table data on precondition
-        if name is techgeeknext_company_03 then update employee to 05
-        <preConditions>
-                <dbms type="mysql"/>
-            </preConditions>
-            <update tableName="company">
-                <column name="employee" value="05"/>
-                <where>name = 'techgeeknext_company_03'</where>
-            </update>
-        !-->
-
     </changeSet>
+
 </databaseChangeLog>
