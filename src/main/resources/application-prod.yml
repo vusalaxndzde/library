@@ -4,8 +4,10 @@ spring:
     username: ${PROD_DB_USERNAME}
     password: ${PROD_DB_PASSWORD}
     name: bakulibrary
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#  liquibase:
-#    enabled: false
+    hikari:
+      max-lifetime: 20000
+  jpa:
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    enabled: false
