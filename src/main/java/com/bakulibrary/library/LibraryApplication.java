@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
-//@Profile({"prod", "dev"})
+@Profile({"prod", "dev"})
 public class LibraryApplication {
 
 	public static void main(String[] args) {
