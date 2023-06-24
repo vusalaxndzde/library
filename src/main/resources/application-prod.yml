@@ -7,3 +7,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  liquibase:
+    enabled: false
