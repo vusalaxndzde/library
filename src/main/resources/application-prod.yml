@@ -11,3 +11,5 @@ spring:
       ddl-auto: update
   liquibase:
     enabled: false
+  main:
+    web-application-type: none
