@@ -1,5 +1,7 @@
 databaseChangeLog:
+#  - include:
+#      file: db/changelog/insert-genre-data.xml
+#  - include:
+#      file: db/changelog/insert-user-role-data.xml
   - include:
-      file: db/changelog/insert-genre-data.xml
-  - include:
-      file: db/changelog/insert-user-role-data.xml
+      file: db/changelog/insert-admin.xml
