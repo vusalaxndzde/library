@@ -5,7 +5,7 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="04" author="vusalaxndzde">
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="id" autoIncrement="true" />
             <column name="email" value="admin@gmail.com" />
             <column name="name" value="admin" />
