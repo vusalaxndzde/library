@@ -4,4 +4,4 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 #RUN ./mvnw dependency:go-offline
 COPY src ./src
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["chmod +x", "./mvnw", "spring-boot:run"]
