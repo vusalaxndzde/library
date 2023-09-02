@@ -24,8 +24,13 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5431:5432"
+    volumes:
+      - library-db:/var/lib/mysql
     networks:
       - library-network
+
+volumes:
+  library-db:
 
 networks:
   library-network:
