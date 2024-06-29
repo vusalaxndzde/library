@@ -37,6 +37,7 @@ public class ReadingListController {
         List<ReadingList> readingLists = readingListService.findReadingListByUser(user);
         List<Book> books = readingLists.stream().map(ReadingList::getBook).collect(Collectors.toList());
         model.addAttribute("books", books);
+
         return "user-books";
     }
 
