@@ -1,17 +1,21 @@
 version: "3.8"
 services:
-  library:
-    image: library-image:latest
+  library-app:
+    image: library:0.0.2
+    container_name: library-app
     build:
       context: .
-    container_name: library
     ports:
       - "8080:8080"
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5431/library-db
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=postgres
-#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://library-db:5432/library-db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
+    depends_on:
+      - library-db
     networks:
       - library-network
 
@@ -23,9 +27,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5431:5432"
+      - "5432:5432"
     volumes:
-      - library-db:/var/lib/mysql
+      - library-db:/var/lib/postgresql/data
     networks:
       - library-network
 
